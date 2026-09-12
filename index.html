@@ -35,10 +35,15 @@
 
   /* ---------- Hero ---------- */
   .hero{background:var(--blue);color:var(--cream);min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
-  .topbar{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-block:1.25rem}
+  .topbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.75rem 1rem;padding-block:1.25rem}
   .brand{display:flex;gap:.55rem;align-items:center;font-weight:700;letter-spacing:-.01em}
   .brand svg{width:1.5rem;height:1.5rem;flex:none}
   .toplink{font-weight:600;text-decoration:none;border-bottom:2px solid currentColor;padding-bottom:1px;white-space:nowrap}
+  .topnav{display:flex;align-items:center;gap:1.5rem}
+  .social{display:flex;align-items:center;gap:.9rem}
+  .social a{display:inline-flex;color:inherit;opacity:.9;transition:opacity .15s}
+  .social a:hover{opacity:1}
+  .social svg{width:1.25rem;height:1.25rem}
   .hero-body{flex:1;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:2rem;padding-block:1.5rem 3.5rem}
   .mark{display:block;width:clamp(3.5rem,7vw,5.25rem);height:auto;margin-bottom:1.5rem}
   .hero h1{font-weight:850;font-size:clamp(4.2rem,13.5vw,10.5rem);line-height:.84;letter-spacing:-.065em;margin-left:-.04em}
@@ -110,6 +115,8 @@
   .cta p{margin-bottom:2rem;font-size:1.15rem}
   .contact{margin-top:1.75rem;font-size:1rem}
   .contact a{font-weight:700}
+  .cta .social{margin-top:1.5rem;gap:1.25rem}
+  .cta .social svg{width:1.4rem;height:1.4rem}
   footer{margin-top:clamp(3rem,7vw,4.5rem);padding-top:1.25rem;border-top:1px solid rgba(243,239,231,.35);font-size:.9rem;opacity:.85;display:grid;gap:.35rem}
   footer .names{font-weight:600}
 
@@ -145,7 +152,17 @@
 <header class="hero">
   <div class="wrap topbar">
     <span class="brand"><svg aria-hidden="true"><use href="#flower"/></svg>ULB CubeSat Team</span>
-    <a class="toplink" href="#candidater">Candidater</a>
+    <div class="topnav">
+      <div class="social">
+        <a href="https://www.instagram.com/ulbcubesat/" target="_blank" rel="noopener" aria-label="ULB CubeSat Team sur Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://be.linkedin.com/company/ulb-cubesat-team" target="_blank" rel="noopener" aria-label="ULB CubeSat Team sur LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C3.34 3.5 2 4.84 2 6.48c0 1.64 1.34 2.98 2.98 2.98h.03c1.64 0 2.98-1.34 2.98-2.98C7.99 4.84 6.65 3.5 4.98 3.5ZM2.4 20.5h5.16V8.98H2.4V20.5Zm7.46 0h5.15v-6.44c0-1.7.32-3.35 2.43-3.35 2.08 0 2.11 1.95 2.11 3.46v6.33H24.7v-7.12c0-4.05-2.17-5.93-5.06-5.93-2.33 0-3.37 1.28-3.96 2.18h.04V8.98H9.86c.07 1.46 0 11.52 0 11.52Z"/></svg>
+        </a>
+      </div>
+      <a class="toplink" href="#candidater">Candidater</a>
+    </div>
   </div>
 
   <div class="wrap hero-body">
@@ -349,6 +366,15 @@
     <p>Laisse-nous tes coordonnées et on revient vers toi.</p>
     <a class="btn btn-cream" href="https://forms.gle/MmBzEsawnCtU6D9i9" target="_blank" rel="noopener">Remplir le formulaire de candidature</a>
     <p class="contact">Une question, une suggestion&nbsp;? Écris-nous à <a href="mailto:cubesat.team@ulb.be">cubesat.team@ulb.be</a>, ou contacte-nous individuellement.</p>
+
+    <div class="social">
+      <a href="https://www.instagram.com/ulbcubesat/" target="_blank" rel="noopener" aria-label="ULB CubeSat Team sur Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://be.linkedin.com/company/ulb-cubesat-team" target="_blank" rel="noopener" aria-label="ULB CubeSat Team sur LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C3.34 3.5 2 4.84 2 6.48c0 1.64 1.34 2.98 2.98 2.98h.03c1.64 0 2.98-1.34 2.98-2.98C7.99 4.84 6.65 3.5 4.98 3.5ZM2.4 20.5h5.16V8.98H2.4V20.5Zm7.46 0h5.15v-6.44c0-1.7.32-3.35 2.43-3.35 2.08 0 2.11 1.95 2.11 3.46v6.33H24.7v-7.12c0-4.05-2.17-5.93-5.06-5.93-2.33 0-3.37 1.28-3.96 2.18h.04V8.98H9.86c.07 1.46 0 11.52 0 11.52Z"/></svg>
+      </a>
+    </div>
 
     <footer>
       <span>ULB CubeSat Team 2026-2027 — École polytechnique de Bruxelles, Université libre de Bruxelles</span>
