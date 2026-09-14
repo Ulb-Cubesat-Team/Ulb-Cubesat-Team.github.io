@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" id="html-root">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Page non indexée par les moteurs de recherche : accessible uniquement via le lien -->
 <meta name="robots" content="noindex, nofollow">
-<title>Projet CubeSat — ULB CubeSat Team 2026-2027</title>
-<meta name="description" content="Rejoins la ULB CubeSat Team de l'EPB. Projets Master 1 (5 ECTS), TFE et projets libres, de BA2 à MA2.">
-<meta property="og:title" content="Projet CubeSat — ULB CubeSat Team 2026-2027">
-<meta property="og:description" content="Concevoir, construire et lancer un CubeSat. Projets Master 1 (5 ECTS), TFE et projets libres, de BA2 à MA2.">
+<title id="page-title">Projet CubeSat — ULB CubeSat Team 2026-2027</title>
+<meta id="page-description" name="description" content="Rejoins la ULB CubeSat Team de l'EPB. Projets Master 1 (5 ECTS), TFE et projets libres, de BA2 à MA2.">
+<meta id="og-title" property="og:title" content="Projet CubeSat — ULB CubeSat Team 2026-2027">
+<meta id="og-description" property="og:description" content="Concevoir, construire et lancer un CubeSat. Projets Master 1 (5 ECTS), TFE et projets libres, de BA2 à MA2.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,6 +32,14 @@
   a{color:inherit}
   :focus-visible{outline:3px solid currentColor;outline-offset:4px;border-radius:2px}
   .wrap{width:min(100% - 2.5rem, var(--max));margin-inline:auto}
+
+  /* ---------- Lang switch ---------- */
+  .lang-switch{position:fixed;top:1.1rem;right:1.1rem;z-index:100;display:flex;gap:.3rem;background:rgba(243,239,231,.14);border:1px solid rgba(243,239,231,.5);border-radius:999px;padding:.25rem;backdrop-filter:blur(4px)}
+  .lang-switch button{font:inherit;font-weight:700;font-size:.85rem;letter-spacing:.02em;border:none;border-radius:999px;padding:.35rem .85rem;cursor:pointer;background:transparent;color:var(--cream);transition:background-color .15s,color .15s}
+  .lang-switch button[aria-pressed="true"]{background:var(--cream);color:var(--blue)}
+  body.site-en .lang-switch,body.site-fr .lang-switch{color:var(--cream)}
+  /* on dark hero the switch reads light; still fine lower down since it's fixed/floating over cream too */
+  .lang-switch button:not([aria-pressed="true"]):hover{background:rgba(243,239,231,.25)}
 
   /* ---------- Hero ---------- */
   .hero{background:var(--blue);color:var(--cream);min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
@@ -120,11 +128,14 @@
   footer{margin-top:clamp(3rem,7vw,4.5rem);padding-top:1.25rem;border-top:1px solid rgba(243,239,231,.35);font-size:.9rem;opacity:.85;display:grid;gap:.35rem}
   footer .names{font-weight:600}
 
+  [hidden]{display:none !important}
+
   @media (max-width:52rem){
     .hero-body{grid-template-columns:1fr;padding-top:.5rem;align-content:center;gap:1.5rem}
     .hero-body .mark{display:none}
     .sat{justify-self:start;width:100%;max-width:17rem;margin:0 0 -.5rem;order:-1}
     .cols-3,.cols-2{grid-template-columns:1fr}
+    .lang-switch{top:.75rem;right:.75rem}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
@@ -134,7 +145,7 @@
   }
 </style>
 </head>
-<body>
+<body class="site-fr">
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="flower" viewBox="-50 -50 100 100">
@@ -147,7 +158,42 @@
       <use href="#petal" transform="rotate(300)"/>
     </g>
   </symbol>
+  <symbol id="sat-illustration" viewBox="0 0 400 400">
+    <g fill="none" stroke="#F3EFE7" stroke-linecap="round">
+      <path class="orbit" pathLength="1" stroke-width="1.5" d="M-120 410 C 60 280, 280 130, 560 -40"/>
+      <path class="orbit" pathLength="1" stroke-width="1" opacity=".55" d="M-120 70 C 100 150, 320 270, 560 470"/>
+    </g>
+    <g class="cube" stroke="#F3EFE7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+      <line x1="105" y1="120" x2="38" y2="58" stroke-width="1.5"/>
+      <line x1="295" y1="230" x2="366" y2="292" stroke-width="1.5"/>
+      <polygon points="105,120 200,175 200,285 105,230" fill="#07378A"/>
+      <polygon points="200,175 295,120 295,230 200,285" fill="#0B47AD"/>
+      <polygon points="200,65 295,120 200,175 105,120" fill="#1B5CC6"/>
+      <g stroke-width="1.2" fill="none" opacity=".85">
+        <polygon points="116.4,139.8 188.6,181.6 188.6,265.2 116.4,223.4"/>
+        <line x1="152.5" y1="160.7" x2="152.5" y2="244.3"/>
+        <line x1="116.4" y1="181.6" x2="188.6" y2="223.4"/>
+        <polygon points="211.4,181.6 283.6,139.8 283.6,223.4 211.4,265.2"/>
+        <line x1="247.5" y1="160.7" x2="247.5" y2="244.3"/>
+        <line x1="211.4" y1="223.4" x2="283.6" y2="181.6"/>
+        <polygon points="162,120 200,142 238,120 200,98"/>
+      </g>
+      <g stroke-width="4.5">
+        <line x1="105" y1="120" x2="105" y2="230"/>
+        <line x1="200" y1="175" x2="200" y2="285"/>
+        <line x1="295" y1="120" x2="295" y2="230"/>
+      </g>
+    </g>
+  </symbol>
 </svg>
+
+<div class="lang-switch" role="group" aria-label="Choix de la langue / Language choice">
+  <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+  <button type="button" data-lang="en" aria-pressed="false">EN</button>
+</div>
+
+<!-- ============================== FRENCH ============================== -->
+<div id="site-fr" class="lang-site">
 
 <header class="hero">
   <div class="wrap topbar">
@@ -177,44 +223,18 @@
       </div>
     </div>
 
-    <svg class="sat" viewBox="0 0 400 400" role="img" aria-label="Illustration d'un CubeSat en orbite">
-      <g fill="none" stroke="#F3EFE7" stroke-linecap="round">
-        <path class="orbit" pathLength="1" stroke-width="1.5" d="M-120 410 C 60 280, 280 130, 560 -40"/>
-        <path class="orbit" pathLength="1" stroke-width="1" opacity=".55" d="M-120 70 C 100 150, 320 270, 560 470"/>
-      </g>
-      <g class="cube" stroke="#F3EFE7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-        <line x1="105" y1="120" x2="38" y2="58" stroke-width="1.5"/>
-        <line x1="295" y1="230" x2="366" y2="292" stroke-width="1.5"/>
-        <polygon points="105,120 200,175 200,285 105,230" fill="#07378A"/>
-        <polygon points="200,175 295,120 295,230 200,285" fill="#0B47AD"/>
-        <polygon points="200,65 295,120 200,175 105,120" fill="#1B5CC6"/>
-        <g stroke-width="1.2" fill="none" opacity=".85">
-          <polygon points="116.4,139.8 188.6,181.6 188.6,265.2 116.4,223.4"/>
-          <line x1="152.5" y1="160.7" x2="152.5" y2="244.3"/>
-          <line x1="116.4" y1="181.6" x2="188.6" y2="223.4"/>
-          <polygon points="211.4,181.6 283.6,139.8 283.6,223.4 211.4,265.2"/>
-          <line x1="247.5" y1="160.7" x2="247.5" y2="244.3"/>
-          <line x1="211.4" y1="223.4" x2="283.6" y2="181.6"/>
-          <polygon points="162,120 200,142 238,120 200,98"/>
-        </g>
-        <g stroke-width="4.5">
-          <line x1="105" y1="120" x2="105" y2="230"/>
-          <line x1="200" y1="175" x2="200" y2="285"/>
-          <line x1="295" y1="120" x2="295" y2="230"/>
-        </g>
-      </g>
-    </svg>
+    <svg class="sat" viewBox="0 0 400 400" role="img" aria-label="Illustration d'un CubeSat en orbite"><use href="#sat-illustration"/></svg>
   </div>
 </header>
 
 <main>
-  <section class="block wrap" aria-labelledby="team">
-    <h2 id="team" class="team-title">ULB CubeSat Team <svg aria-hidden="true"><use href="#flower"/></svg></h2>
+  <section class="block wrap" aria-labelledby="team-fr">
+    <h2 id="team-fr" class="team-title">ULB CubeSat Team <svg aria-hidden="true"><use href="#flower"/></svg></h2>
     <div class="bar bar-long"></div>
   </section>
 
-  <section class="block wrap" aria-labelledby="presentation">
-    <h2 id="presentation" class="h2">Présentation générale</h2>
+  <section class="block wrap" aria-labelledby="presentation-fr">
+    <h2 id="presentation-fr" class="h2">Présentation générale</h2>
     <div class="bar"></div>
     <p class="lead">Initiative étudiante de l'EPB visant à concevoir, construire et lancer un véritable CubeSat (petit satellite), pour offrir aux étudiant·e·s une expérience concrète de projet spatial complet.</p>
 
@@ -242,8 +262,8 @@
     </dl>
   </section>
 
-  <section class="block wrap" aria-labelledby="ma1">
-    <h2 id="ma1" class="h2">Pour les étudiants en Master 1</h2>
+  <section class="block wrap" aria-labelledby="ma1-fr">
+    <h2 id="ma1-fr" class="h2">Pour les étudiants en Master 1</h2>
     <div class="bar"></div>
     <p class="lead">Pour l'année académique 2026-2027, nous recherchons des étudiant·e·s en Master 1 motivés par la conception du CubeSat. Ces projets sont valorisés à hauteur de 5 ECTS, sous les cours ayant pour mnémonique PROJ-H4XX.</p>
 
@@ -291,8 +311,8 @@
     <p class="note">D'autres projets en électromécanique, télécommunication, électronique, informatique ou physique pourraient naître dans les semaines à venir. Contacte-nous avec tes centres d'intérêt et nous ferons au mieux pour t'inclure dans l'équipe.</p>
   </section>
 
-  <section class="block wrap" aria-labelledby="ma2">
-    <h2 id="ma2" class="h2">Pour les étudiants en Master 2</h2>
+  <section class="block wrap" aria-labelledby="ma2-fr">
+    <h2 id="ma2-fr" class="h2">Pour les étudiants en Master 2</h2>
     <div class="bar"></div>
     <p class="lead">Les étudiant·e·s de MA2 peuvent réaliser un TFE à l'ULB en lien avec les thématiques et projets du CubeSat.</p>
     <p style="margin-bottom:2.25rem">Prends contact avec nous pour discuter de tes centres d'intérêt. Nous pourrons ensuite te mettre en relation avec un professeur référent et explorer les différentes possibilités de sujets.</p>
@@ -310,8 +330,8 @@
     </div>
   </section>
 
-  <section class="block wrap" aria-labelledby="autres">
-    <h2 id="autres" class="h2">Pour les autres étudiants</h2>
+  <section class="block wrap" aria-labelledby="autres-fr">
+    <h2 id="autres-fr" class="h2">Pour les autres étudiants</h2>
     <div class="bar"></div>
     <p class="lead">Si tu n'es pas en Master 1 ou Master 2, ou si les projets ci-dessus ne te correspondent pas, il est tout de même possible d'intégrer l'équipe.</p>
 
@@ -336,8 +356,8 @@
     </div>
   </section>
 
-  <section class="block wrap" id="candidater" aria-labelledby="candidatures">
-    <h2 id="candidatures" class="h2">Candidatures</h2>
+  <section class="block wrap" id="candidater" aria-labelledby="candidatures-fr">
+    <h2 id="candidatures-fr" class="h2">Candidatures</h2>
     <div class="bar"></div>
     <div class="cols cols-2">
       <div>
@@ -358,10 +378,10 @@
   </section>
 </main>
 
-<section class="cta" aria-labelledby="postuler">
+<section class="cta" aria-labelledby="postuler-fr">
   <div class="wrap">
     <svg class="mark" aria-hidden="true"><use href="#flower"/></svg>
-    <h2 id="postuler">Rejoins l'équipe</h2>
+    <h2 id="postuler-fr">Rejoins l'équipe</h2>
     <div class="bar"></div>
     <p>Laisse-nous tes coordonnées et on revient vers toi.</p>
     <a class="btn btn-cream" href="https://forms.gle/MmBzEsawnCtU6D9i9" target="_blank" rel="noopener">Remplir le formulaire de candidature</a>
@@ -382,6 +402,262 @@
     </footer>
   </div>
 </section>
+
+</div>
+<!-- ============================ END FRENCH ============================ -->
+
+<!-- ============================== ENGLISH ============================== -->
+<div id="site-en" class="lang-site" hidden>
+
+<header class="hero">
+  <div class="wrap topbar">
+    <span class="brand"><svg aria-hidden="true"><use href="#flower"/></svg>ULB CubeSat Team</span>
+    <div class="topnav">
+      <div class="social">
+        <a href="https://www.instagram.com/ulbcubesat/" target="_blank" rel="noopener" aria-label="ULB CubeSat Team on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://be.linkedin.com/company/ulb-cubesat-team" target="_blank" rel="noopener" aria-label="ULB CubeSat Team on LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C3.34 3.5 2 4.84 2 6.48c0 1.64 1.34 2.98 2.98 2.98h.03c1.64 0 2.98-1.34 2.98-2.98C7.99 4.84 6.65 3.5 4.98 3.5ZM2.4 20.5h5.16V8.98H2.4V20.5Zm7.46 0h5.15v-6.44c0-1.7.32-3.35 2.43-3.35 2.08 0 2.11 1.95 2.11 3.46v6.33H24.7v-7.12c0-4.05-2.17-5.93-5.06-5.93-2.33 0-3.37 1.28-3.96 2.18h.04V8.98H9.86c.07 1.46 0 11.52 0 11.52Z"/></svg>
+        </a>
+      </div>
+      <a class="toplink" href="#apply">Apply</a>
+    </div>
+  </div>
+
+  <div class="wrap hero-body">
+    <div>
+      <svg class="mark" aria-hidden="true"><use href="#flower"/></svg>
+      <h1>CubeSat<br>Project</h1>
+      <div class="rule"></div>
+      <p class="kicker">Presentation and call for applications</p>
+      <div class="hero-foot">
+        <a class="btn btn-cream" href="#apply">Apply</a>
+        <span><span class="year">2026-2027</span><br><span class="school">Brussels Faculty of Engineering (EPB)</span></span>
+      </div>
+    </div>
+
+    <svg class="sat" viewBox="0 0 400 400" role="img" aria-label="Illustration of a CubeSat in orbit"><use href="#sat-illustration"/></svg>
+  </div>
+</header>
+
+<main>
+  <section class="block wrap" aria-labelledby="team-en">
+    <h2 id="team-en" class="team-title">ULB CubeSat Team <svg aria-hidden="true"><use href="#flower"/></svg></h2>
+    <div class="bar bar-long"></div>
+  </section>
+
+  <section class="block wrap" aria-labelledby="presentation-en">
+    <h2 id="presentation-en" class="h2">General presentation</h2>
+    <div class="bar"></div>
+    <p class="lead">A student initiative at the EPB aiming to design, build and launch a real CubeSat (small satellite), giving students hands-on experience of a complete space project.</p>
+
+    <div class="cols cols-3">
+      <div class="pillar">
+        <h3 class="h3">A collective, long-term adventure</h3>
+        <p>Join a team of students (BA2 to MA2) engaged over several years, with the support of members of academic staff. A great opportunity to build connections with students from other years, while developing skills that are valuable for your future career.</p>
+      </div>
+      <div class="pillar">
+        <h3 class="h3">The mission objective</h3>
+        <p>The CubeSat will aim to orbit in VLEO (Very Low Earth Orbit, ~200 km altitude) in order to test the effectiveness of an air intake at this altitude. This air intake captures the residual atmosphere and compresses it, to power new devices capable of keeping the satellite in such a low orbit.</p>
+      </div>
+      <div class="pillar">
+        <h3 class="h3">A project open to all fields of study</h3>
+        <p>We are particularly looking for students in electromechanical engineering, electronics and telecommunications, computer science, and materials science. If you're in another field, or still in your bachelor's, and the project interests you, don't hesitate to get in touch with us.</p>
+      </div>
+    </div>
+
+    <dl class="sponsors">
+      <dt>Sponsored by</dt>
+      <dd>Axel Coussement <span>(ATM)</span></dd>
+      <dd>Thierry Magin <span>(ATM)</span></dd>
+      <dd>François Quitin <span>(BEAMS)</span></dd>
+      <dd>Cédric Boey <span>(BAPP)</span></dd>
+    </dl>
+  </section>
+
+  <section class="block wrap" aria-labelledby="ma1-en">
+    <h2 id="ma1-en" class="h2">For Master 1 students</h2>
+    <div class="bar"></div>
+    <p class="lead">For the 2026-2027 academic year, we are looking for Master 1 students who are motivated by the design of the CubeSat. These projects are worth 5 ECTS, under courses with the mnemonic PROJ-H4XX.</p>
+
+    <div class="course">
+      <div class="course-head">
+        <h3>Project in Electromechanical Engineering</h3>
+        <span class="tag">PROJ-H405</span>
+      </div>
+      <ul class="projects">
+        <li>
+          <h4>Study of Star Trackers</h4>
+          <p class="who">1-2 students</p>
+          <p>Get familiar with Star Tracker sensors, which give the position of stars and are implemented in satellites to determine their orientation. The project focuses on studying these sensors, with a view to implementing them in our CubeSat later on.</p>
+        </li>
+        <li>
+          <h4>Study and development of a VLEO aerodynamic test bench</h4>
+          <p class="who">1-2 students</p>
+          <p>Before sending the CubeSat into space, the aerodynamic behavior of its air intake must be validated under the extreme conditions of VLEO. The project involves the theoretical study and technical feasibility of a test bench capable of recreating these conditions.</p>
+        </li>
+        <li>
+          <h4>Degradation of flexible photovoltaic panels in a VLEO environment</h4>
+          <p class="who">1-2 students</p>
+          <p>In very low orbit, the environment is particularly harsh for a CubeSat's flexible solar cells. This project studies their degradation under these conditions, notably through oscillation tests, and its impact on efficiency and delivered current.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="course">
+      <div class="course-head">
+        <h3>Project in Computer Science Engineering</h3>
+        <span class="tag">PROJ-H402</span>
+      </div>
+      <ul class="projects">
+        <li>
+          <h4>"On Base" software: real-time data display</h4>
+          <p>Comparative study of exchange formats (JSON, binary, structured packets), centralizing telemetry in a dedicated database, and generating synthetic datasets simulating real transmission conditions. The goal is to validate the integrity of the ground-to-board link before flight.</p>
+        </li>
+        <li>
+          <h4>Onboard software and real-time system (OBC)</h4>
+          <p>Design of the embedded software architecture, on FreeRTOS or embedded Linux in C/C++: managing priority tasks, scheduling sensor measurements, and managing flight modes (nominal, survival, transmission).</p>
+        </li>
+      </ul>
+    </div>
+
+    <p class="note">Other projects in electromechanics, telecommunications, electronics, computer science or physics may come up in the coming weeks. Contact us with your interests and we'll do our best to include you in the team.</p>
+  </section>
+
+  <section class="block wrap" aria-labelledby="ma2-en">
+    <h2 id="ma2-en" class="h2">For Master 2 students</h2>
+    <div class="bar"></div>
+    <p class="lead">MA2 students can complete their master's thesis at ULB related to CubeSat themes and projects.</p>
+    <p style="margin-bottom:2.25rem">Get in touch with us to discuss your interests. We can then put you in contact with a supervising professor and explore the various possible topics.</p>
+
+    <div class="course">
+      <div class="course-head">
+        <h3>Navigation and orientation of a CubeSat</h3>
+        <span class="tag">Prof. Garone</span>
+      </div>
+      <ul class="projects">
+        <li>
+          <p>Controlling the satellite's position breaks down into two phases: precisely determining its position in space (navigation) and rotating the CubeSat to place it in the appropriate orientation (activation). This thesis focuses on navigation: studying and implementing methods to determine the satellite's orientation from the available sensors (magnetometers, gyroscopes, sun sensors), in order to provide a reliable, precise real-time estimate.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block wrap" aria-labelledby="others-en">
+    <h2 id="others-en" class="h2">For other students</h2>
+    <div class="bar"></div>
+    <p class="lead">If you're not in Master 1 or Master 2, or if the projects above don't fit you, it's still possible to join the team.</p>
+
+    <div class="cols cols-2">
+      <div>
+        <p>Topics aren't defined in advance. Tell us about your interests or the themes that motivate you: we'll work together, in collaboration with the supervising professors, to find a project suited to your profile.</p>
+        <p style="margin-top:.9rem">It's not as demanding as the MA1 projects and theses, but it does require attending meetings and a real commitment. All students, from BA2 to MA2, are welcome.</p>
+      </div>
+      <div>
+        <h3 class="h3">Especially welcome as reinforcements</h3>
+        <ul class="skills">
+          <li>3D printing</li>
+          <li>CAD</li>
+          <li>Electronics</li>
+          <li>Power circuit</li>
+          <li>MATLAB/Simulink</li>
+          <li>PCB design</li>
+          <li>Telecommunications</li>
+          <li>Programming (C, Python)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block wrap" id="apply" aria-labelledby="applications-en">
+    <h2 id="applications-en" class="h2">Applications</h2>
+    <div class="bar"></div>
+    <div class="cols cols-2">
+      <div>
+        <h3 class="h3">Who can apply?</h3>
+        <p>Open to all EPB students, from BA2 to MA2, regardless of field of study.</p>
+        <h3 class="h3" style="margin-top:2rem">What we're looking for</h3>
+        <p>Motivation, a desire to learn by doing, team spirit, the ability to commit over the long term, and good communication. No prior expertise in space is required, but plenty of curiosity is essential.</p>
+      </div>
+      <div>
+        <h3 class="h3">How to apply?</h3>
+        <ol class="steps">
+          <li><div><strong>Fill out the form</strong>Last name, first name, email address and academic year. The rest is optional: two minutes is enough.</div></li>
+          <li><div><strong>Tell us what motivates you</strong>Drawn to a particular project, or have an idea to propose? That's mainly what helps us offer you something that suits you.</div></li>
+          <li><div><strong>We'll get back to you</strong>We review all applications and organize an interview to get to know you.</div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="cta" aria-labelledby="join-en">
+  <div class="wrap">
+    <svg class="mark" aria-hidden="true"><use href="#flower"/></svg>
+    <h2 id="join-en">Join the team</h2>
+    <div class="bar"></div>
+    <p>Leave us your details and we'll get back to you.</p>
+    <a class="btn btn-cream" href="https://forms.gle/MmBzEsawnCtU6D9i9" target="_blank" rel="noopener">Fill out the application form</a>
+    <p class="contact">A question, a suggestion? Write to us at <a href="mailto:cubesat.team@ulb.be">cubesat.team@ulb.be</a>, or contact us individually.</p>
+
+    <div class="social">
+      <a href="https://www.instagram.com/ulbcubesat/" target="_blank" rel="noopener" aria-label="ULB CubeSat Team on Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://be.linkedin.com/company/ulb-cubesat-team" target="_blank" rel="noopener" aria-label="ULB CubeSat Team on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C3.34 3.5 2 4.84 2 6.48c0 1.64 1.34 2.98 2.98 2.98h.03c1.64 0 2.98-1.34 2.98-2.98C7.99 4.84 6.65 3.5 4.98 3.5ZM2.4 20.5h5.16V8.98H2.4V20.5Zm7.46 0h5.15v-6.44c0-1.7.32-3.35 2.43-3.35 2.08 0 2.11 1.95 2.11 3.46v6.33H24.7v-7.12c0-4.05-2.17-5.93-5.06-5.93-2.33 0-3.37 1.28-3.96 2.18h.04V8.98H9.86c.07 1.46 0 11.52 0 11.52Z"/></svg>
+      </a>
+    </div>
+
+    <footer>
+      <span>ULB CubeSat Team 2026-2027 — Brussels Faculty of Engineering, Université libre de Bruxelles</span>
+      <span class="names">Derbaise Gael, Desmedt Edouard, Fallik Gabriel, Lottin Enzo, Napolitano Pablo</span>
+    </footer>
+  </div>
+</section>
+
+</div>
+<!-- ============================ END ENGLISH ============================ -->
+
+<script>
+(function(){
+  var htmlEl = document.getElementById('html-root');
+  var bodyEl = document.body;
+  var siteFr = document.getElementById('site-fr');
+  var siteEn = document.getElementById('site-en');
+  var buttons = document.querySelectorAll('.lang-switch button');
+
+  var titles = {
+    fr: 'Projet CubeSat — ULB CubeSat Team 2026-2027',
+    en: 'CubeSat Project — ULB CubeSat Team 2026-2027'
+  };
+  var descriptions = {
+    fr: "Rejoins la ULB CubeSat Team de l'EPB. Projets Master 1 (5 ECTS), TFE et projets libres, de BA2 à MA2.",
+    en: "Join ULB CubeSat Team at the EPB. Master 1 projects (5 ECTS), master's theses and open projects, from BA2 to MA2."
+  };
+
+  function setLang(lang){
+    var isEn = lang === 'en';
+    siteFr.hidden = isEn;
+    siteEn.hidden = !isEn;
+    htmlEl.setAttribute('lang', lang);
+    bodyEl.classList.toggle('site-en', isEn);
+    bodyEl.classList.toggle('site-fr', !isEn);
+    document.getElementById('page-title').textContent = titles[lang];
+    document.getElementById('page-description').setAttribute('content', descriptions[lang]);
+    document.getElementById('og-title').setAttribute('content', titles[lang]);
+    document.getElementById('og-description').setAttribute('content', descriptions[lang]);
+    buttons.forEach(function(b){
+      b.setAttribute('aria-pressed', b.dataset.lang === lang ? 'true' : 'false');
+    });
+  }
+
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){ setLang(b.dataset.lang); });
+  });
+})();
+</script>
 
 </body>
 </html>
