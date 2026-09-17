@@ -33,13 +33,18 @@
   :focus-visible{outline:3px solid currentColor;outline-offset:4px;border-radius:2px}
   .wrap{width:min(100% - 2.5rem, var(--max));margin-inline:auto}
 
-  /* ---------- Lang switch ---------- */
-  .lang-switch{position:fixed;top:1.1rem;right:1.1rem;z-index:100;display:flex;gap:.3rem;background:rgba(243,239,231,.14);border:1px solid rgba(243,239,231,.5);border-radius:999px;padding:.25rem;backdrop-filter:blur(4px)}
+  /* ---------- Lang switch + social (single global instance, not duplicated per language) ---------- */
+  .lang-switch{position:fixed;top:1.1rem;right:1.1rem;z-index:100;display:flex;align-items:center;gap:.3rem;background:rgba(243,239,231,.14);border:1px solid rgba(243,239,231,.5);border-radius:999px;padding:.25rem;backdrop-filter:blur(4px)}
   .lang-switch button{font:inherit;font-weight:700;font-size:.85rem;letter-spacing:.02em;border:none;border-radius:999px;padding:.35rem .85rem;cursor:pointer;background:transparent;color:var(--cream);transition:background-color .15s,color .15s}
   .lang-switch button[aria-pressed="true"]{background:var(--cream);color:var(--blue)}
   body.site-en .lang-switch,body.site-fr .lang-switch{color:var(--cream)}
   /* on dark hero the switch reads light; still fine lower down since it's fixed/floating over cream too */
   .lang-switch button:not([aria-pressed="true"]):hover{background:rgba(243,239,231,.25)}
+  .lang-switch .social{display:flex;align-items:center;gap:.6rem;padding-inline:.5rem 0}
+  .lang-switch .social a{display:inline-flex;color:inherit;opacity:.9;transition:opacity .15s}
+  .lang-switch .social a:hover{opacity:1}
+  .lang-switch .social svg{width:1.05rem;height:1.05rem}
+  .lang-switch .divider{width:1px;align-self:stretch;margin-block:.3rem;background:rgba(243,239,231,.5)}
 
   /* ---------- Hero ---------- */
   .hero{background:var(--blue);color:var(--cream);min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
@@ -123,8 +128,6 @@
   .cta p{margin-bottom:2rem;font-size:1.15rem}
   .contact{margin-top:1.75rem;font-size:1rem}
   .contact a{font-weight:700}
-  .cta .social{margin-top:1.5rem;gap:1.25rem}
-  .cta .social svg{width:1.4rem;height:1.4rem}
   footer{margin-top:clamp(3rem,7vw,4.5rem);padding-top:1.25rem;border-top:1px solid rgba(243,239,231,.35);font-size:.9rem;opacity:.85;display:grid;gap:.35rem}
   footer .names{font-weight:600}
 
@@ -135,7 +138,8 @@
     .hero-body .mark{display:none}
     .sat{justify-self:start;width:100%;max-width:17rem;margin:0 0 -.5rem;order:-1}
     .cols-3,.cols-2{grid-template-columns:1fr}
-    .lang-switch{top:.75rem;right:.75rem}
+    .lang-switch{top:.75rem;right:.75rem;gap:.2rem}
+    .lang-switch .social{gap:.45rem;padding-inline:.4rem 0}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
@@ -187,9 +191,20 @@
   </symbol>
 </svg>
 
-<div class="lang-switch" role="group" aria-label="Choix de la langue / Language choice">
-  <button type="button" data-lang="fr" aria-pressed="true">FR</button>
-  <button type="button" data-lang="en" aria-pressed="false">EN</button>
+<div class="lang-switch">
+  <div class="social">
+    <a href="https://www.instagram.com/ulbcubesat/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://be.linkedin.com/company/ulb-cubesat-team" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C3.34 3.5 2 4.84 2 6.48c0 1.64 1.34 2.98 2.98 2.98h.03c1.64 0 2.98-1.34 2.98-2.98C7.99 4.84 6.65 3.5 4.98 3.5ZM2.4 20.5h5.16V8.98H2.4V20.5Zm7.46 0h5.15v-6.44c0-1.7.32-3.35 2.43-3.35 2.08 0 2.11 1.95 2.11 3.46v6.33H24.7v-7.12c0-4.05-2.17-5.93-5.06-5.93-2.33 0-3.37 1.28-3.96 2.18h.04V8.98H9.86c.07 1.46 0 11.52 0 11.52Z"/></svg>
+    </a>
+  </div>
+  <span class="divider" aria-hidden="true"></span>
+  <div role="group" aria-label="Choix de la langue / Language choice" style="display:flex;gap:.3rem">
+    <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
 </div>
 
 <!-- ============================== FRENCH ============================== -->
@@ -199,14 +214,6 @@
   <div class="wrap topbar">
     <span class="brand"><svg aria-hidden="true"><use href="#flower"/></svg>ULB CubeSat Team</span>
     <div class="topnav">
-      <div class="social">
-        <a href="https://www.instagram.com/ulbcubesat/" target="_blank" rel="noopener" aria-label="ULB CubeSat Team sur Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
-        </a>
-        <a href="https://be.linkedin.com/company/ulb-cubesat-team" target="_blank" rel="noopener" aria-label="ULB CubeSat Team sur LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C3.34 3.5 2 4.84 2 6.48c0 1.64 1.34 2.98 2.98 2.98h.03c1.64 0 2.98-1.34 2.98-2.98C7.99 4.84 6.65 3.5 4.98 3.5ZM2.4 20.5h5.16V8.98H2.4V20.5Zm7.46 0h5.15v-6.44c0-1.7.32-3.35 2.43-3.35 2.08 0 2.11 1.95 2.11 3.46v6.33H24.7v-7.12c0-4.05-2.17-5.93-5.06-5.93-2.33 0-3.37 1.28-3.96 2.18h.04V8.98H9.86c.07 1.46 0 11.52 0 11.52Z"/></svg>
-        </a>
-      </div>
       <a class="toplink" href="#candidater">Candidater</a>
     </div>
   </div>
@@ -241,7 +248,7 @@
     <div class="cols cols-3">
       <div class="pillar">
         <h3 class="h3">Une aventure collective et durable</h3>
-        <p>Rejoins une équipe d'étudiants (BA2 à MA2) engagée sur plusieurs années, avec le soutien de membres du corps académique. Une belle occasion de tisser des liens avec des étudiant·e·s d'autres années, tout en développant des compétences précieuses pour ta future carrière.</p>
+        <p>Rejoins une équipe d'étudiant·e·s (BA2 à MA2) engagée sur plusieurs années, avec le soutien de membres du corps académique. Une belle occasion de tisser des liens avec des étudiant·e·s d'autres années, tout en développant des compétences précieuses pour ta future carrière.</p>
       </div>
       <div class="pillar">
         <h3 class="h3">L'objectif de la mission</h3>
@@ -249,7 +256,7 @@
       </div>
       <div class="pillar">
         <h3 class="h3">Un projet ouvert à toutes les filières</h3>
-        <p>Nous recherchons en particulier des étudiant·e·s en électromécanique, électronique et télécommunications, informatique et sciences des matériaux. Si tu fais partie d'une autre filière, ou si tu es en bachelier, et que le projet t'intéresse, n'hésite surtout pas à prendre contact avec nous.</p>
+        <p>Nous recherchons en particulier des étudiant·e·s en électromécanique, électronique et télécommunications, informatique et sciences des matériaux. Si tu fais partie d'une autre filière, ou si tu es en bachelier·ère, et que le projet t'intéresse, n'hésite surtout pas à prendre contact avec nous.</p>
       </div>
     </div>
 
@@ -263,9 +270,9 @@
   </section>
 
   <section class="block wrap" aria-labelledby="ma1-fr">
-    <h2 id="ma1-fr" class="h2">Pour les étudiants en Master 1</h2>
+    <h2 id="ma1-fr" class="h2">Pour les étudiant·e·s en Master 1</h2>
     <div class="bar"></div>
-    <p class="lead">Pour l'année académique 2026-2027, nous recherchons des étudiant·e·s en Master 1 motivés par la conception du CubeSat. Ces projets sont valorisés à hauteur de 5 ECTS, sous les cours ayant pour mnémonique PROJ-H4XX.</p>
+    <p class="lead">Pour l'année académique 2026-2027, nous recherchons des étudiant·e·s en Master 1 motivé·e·s par la conception du CubeSat. Ces projets sont valorisés à hauteur de 5 ECTS, sous les cours ayant pour mnémonique PROJ-H4XX.</p>
 
     <div class="course">
       <div class="course-head">
@@ -312,10 +319,10 @@
   </section>
 
   <section class="block wrap" aria-labelledby="ma2-fr">
-    <h2 id="ma2-fr" class="h2">Pour les étudiants en Master 2</h2>
+    <h2 id="ma2-fr" class="h2">Pour les étudiant·e·s en Master 2</h2>
     <div class="bar"></div>
     <p class="lead">Les étudiant·e·s de MA2 peuvent réaliser un TFE à l'ULB en lien avec les thématiques et projets du CubeSat.</p>
-    <p style="margin-bottom:2.25rem">Prends contact avec nous pour discuter de tes centres d'intérêt. Nous pourrons ensuite te mettre en relation avec un professeur référent et explorer les différentes possibilités de sujets.</p>
+    <p style="margin-bottom:2.25rem">Prends contact avec nous pour discuter de tes centres d'intérêt. Nous pourrons ensuite te mettre en relation avec un·e professeur·e référent·e et explorer les différentes possibilités de sujets.</p>
 
     <div class="course">
       <div class="course-head">
@@ -331,17 +338,17 @@
   </section>
 
   <section class="block wrap" aria-labelledby="autres-fr">
-    <h2 id="autres-fr" class="h2">Pour les autres étudiants</h2>
+    <h2 id="autres-fr" class="h2">Pour les autres étudiant·e·s</h2>
     <div class="bar"></div>
     <p class="lead">Si tu n'es pas en Master 1 ou Master 2, ou si les projets ci-dessus ne te correspondent pas, il est tout de même possible d'intégrer l'équipe.</p>
 
     <div class="cols cols-2">
       <div>
-        <p>Les sujets ne sont pas définis à l'avance. Présente-nous tes centres d'intérêt ou les thématiques qui te motivent&nbsp;: nous réfléchirons ensemble, en collaboration avec les professeurs encadrants, à un projet adapté à ton profil.</p>
-        <p style="margin-top:.9rem">Ce n'est pas aussi exigeant que les projets de MA1 et les TFE, mais cela demande un suivi des réunions et un réel investissement. Tous les étudiant·e·s, de la BA2 à la MA2, sont les bienvenu·e·s.</p>
+        <p>Les sujets ne sont pas définis à l'avance. Présente-nous tes centres d'intérêt ou les thématiques qui te motivent&nbsp;: nous réfléchirons ensemble, en collaboration avec les professeur·e·s encadrant·e·s, à un projet adapté à ton profil.</p>
+        <p style="margin-top:.9rem">Ce n'est pas aussi exigeant que les projets de MA1 et les TFE, mais cela demande un suivi des réunions et un réel investissement. Tou·te·s les étudiant·e·s, de la BA2 à la MA2, sont les bienvenu·e·s.</p>
       </div>
       <div>
-        <h3 class="h3">Particulièrement bienvenus en renfort</h3>
+        <h3 class="h3">Particulièrement bienvenu·e·s en renfort</h3>
         <ul class="skills">
           <li>Impression 3D</li>
           <li>CAO</li>
@@ -387,15 +394,6 @@
     <a class="btn btn-cream" href="https://forms.gle/MmBzEsawnCtU6D9i9" target="_blank" rel="noopener">Remplir le formulaire de candidature</a>
     <p class="contact">Une question, une suggestion&nbsp;? Écris-nous à <a href="mailto:cubesat.team@ulb.be">cubesat.team@ulb.be</a>, ou contacte-nous individuellement.</p>
 
-    <div class="social">
-      <a href="https://www.instagram.com/ulbcubesat/" target="_blank" rel="noopener" aria-label="ULB CubeSat Team sur Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
-      </a>
-      <a href="https://be.linkedin.com/company/ulb-cubesat-team" target="_blank" rel="noopener" aria-label="ULB CubeSat Team sur LinkedIn">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C3.34 3.5 2 4.84 2 6.48c0 1.64 1.34 2.98 2.98 2.98h.03c1.64 0 2.98-1.34 2.98-2.98C7.99 4.84 6.65 3.5 4.98 3.5ZM2.4 20.5h5.16V8.98H2.4V20.5Zm7.46 0h5.15v-6.44c0-1.7.32-3.35 2.43-3.35 2.08 0 2.11 1.95 2.11 3.46v6.33H24.7v-7.12c0-4.05-2.17-5.93-5.06-5.93-2.33 0-3.37 1.28-3.96 2.18h.04V8.98H9.86c.07 1.46 0 11.52 0 11.52Z"/></svg>
-      </a>
-    </div>
-
     <footer>
       <span>ULB CubeSat Team 2026-2027 — École polytechnique de Bruxelles, Université libre de Bruxelles</span>
       <span class="names">Derbaise Gael, Desmedt Edouard, Fallik Gabriel, Lottin Enzo, Napolitano Pablo</span>
@@ -413,14 +411,6 @@
   <div class="wrap topbar">
     <span class="brand"><svg aria-hidden="true"><use href="#flower"/></svg>ULB CubeSat Team</span>
     <div class="topnav">
-      <div class="social">
-        <a href="https://www.instagram.com/ulbcubesat/" target="_blank" rel="noopener" aria-label="ULB CubeSat Team on Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
-        </a>
-        <a href="https://be.linkedin.com/company/ulb-cubesat-team" target="_blank" rel="noopener" aria-label="ULB CubeSat Team on LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C3.34 3.5 2 4.84 2 6.48c0 1.64 1.34 2.98 2.98 2.98h.03c1.64 0 2.98-1.34 2.98-2.98C7.99 4.84 6.65 3.5 4.98 3.5ZM2.4 20.5h5.16V8.98H2.4V20.5Zm7.46 0h5.15v-6.44c0-1.7.32-3.35 2.43-3.35 2.08 0 2.11 1.95 2.11 3.46v6.33H24.7v-7.12c0-4.05-2.17-5.93-5.06-5.93-2.33 0-3.37 1.28-3.96 2.18h.04V8.98H9.86c.07 1.46 0 11.52 0 11.52Z"/></svg>
-        </a>
-      </div>
       <a class="toplink" href="#apply">Apply</a>
     </div>
   </div>
@@ -600,15 +590,6 @@
     <p>Leave us your details and we'll get back to you.</p>
     <a class="btn btn-cream" href="https://forms.gle/MmBzEsawnCtU6D9i9" target="_blank" rel="noopener">Fill out the application form</a>
     <p class="contact">A question, a suggestion? Write to us at <a href="mailto:cubesat.team@ulb.be">cubesat.team@ulb.be</a>, or contact us individually.</p>
-
-    <div class="social">
-      <a href="https://www.instagram.com/ulbcubesat/" target="_blank" rel="noopener" aria-label="ULB CubeSat Team on Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
-      </a>
-      <a href="https://be.linkedin.com/company/ulb-cubesat-team" target="_blank" rel="noopener" aria-label="ULB CubeSat Team on LinkedIn">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C3.34 3.5 2 4.84 2 6.48c0 1.64 1.34 2.98 2.98 2.98h.03c1.64 0 2.98-1.34 2.98-2.98C7.99 4.84 6.65 3.5 4.98 3.5ZM2.4 20.5h5.16V8.98H2.4V20.5Zm7.46 0h5.15v-6.44c0-1.7.32-3.35 2.43-3.35 2.08 0 2.11 1.95 2.11 3.46v6.33H24.7v-7.12c0-4.05-2.17-5.93-5.06-5.93-2.33 0-3.37 1.28-3.96 2.18h.04V8.98H9.86c.07 1.46 0 11.52 0 11.52Z"/></svg>
-      </a>
-    </div>
 
     <footer>
       <span>ULB CubeSat Team 2026-2027 — Brussels Faculty of Engineering, Université libre de Bruxelles</span>
