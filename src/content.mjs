@@ -94,7 +94,7 @@ export const copy = {
       badge: 'Applications closed for 2026–2027', secondary: 'Questions? Email us',
       pathwaysTitle: 'Ways to take part',
       pathways: [
-        ['Master 1', 'Course project', '5 ECTS projects through PROJ-H405 and PROJ-H402. Topics are defined together with the team.'],
+        ['Master 1', 'Master project', '5 ECTS projects on a real satellite in development. Topics are defined together with the team and are multidisciplinary, so you work alongside students from other engineering fields.'],
         ['Master 2', 'Master’s thesis', 'CubeSat-related thesis topics, with an academic supervisor.'],
         ['BA2 to MA2', 'Independent project', 'Work on a topic that matches your interests, with regular team meetings and a sustained commitment.'],
       ],
@@ -182,7 +182,7 @@ export const copy = {
       badge: 'Candidatures closes pour 2026–2027', secondary: 'Une question ? Écrivez-nous',
       pathwaysTitle: 'Comment participer',
       pathways: [
-        ['Master 1', 'Projet de cours', 'Projets de 5 ECTS via PROJ-H405 et PROJ-H402. Les sujets sont définis avec l’équipe.'],
+        ['Master 1', 'Projet de master', 'Projets de 5 ECTS sur un vrai satellite en développement. Les sujets sont définis avec l’équipe et sont multidisciplinaires : vous travaillez aux côtés d’étudiants d’autres filières d’ingénieur.'],
         ['Master 2', 'Mémoire', 'Sujets de mémoire liés au CubeSat, avec un promoteur académique.'],
         ['BA2 à MA2', 'Projet libre', 'Un sujet en lien avec vos centres d’intérêt, avec des réunions d’équipe régulières et un engagement dans la durée.'],
       ],
