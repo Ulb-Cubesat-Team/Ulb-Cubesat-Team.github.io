@@ -6,14 +6,15 @@ export const links = {
   email: 'cubesat.team@ulb.be',
 };
 
-// Set `role` to { en: '…', fr: '…' } and `photo` to a file in assets/ (e.g. 'team/gael.webp') once confirmed.
-// Members without a role or photo are shown with their name and initials only.
+// `role` is { en, fr }; `board: true` adds a "Board" tag. Set `photo` to a file in assets/ (e.g. 'team/enzo.webp') to replace the initials.
 export const members = [
-  { name: 'Gael Derbaise', initials: 'GD', role: null, photo: null },
-  { name: 'Edouard Desmedt', initials: 'ED', role: null, photo: null },
-  { name: 'Gabriel Fallik', initials: 'GF', role: null, photo: null },
-  { name: 'Enzo Lottin', initials: 'EL', role: null, photo: null },
-  { name: 'Pablo Napolitano', initials: 'PN', role: null, photo: null },
+  { name: 'Enzo Lottin', initials: 'EL', role: { en: 'Systems Engineer & Team Leader', fr: 'Ingénieur système et chef d’équipe' }, board: true, photo: null },
+  { name: 'Gabriel Fallik', initials: 'GF', role: { en: 'OBC Engineering Lead', fr: 'Responsable OBC' }, board: true, photo: null },
+  { name: 'Edouard Desmedt', initials: 'ED', role: { en: 'ADCS Engineering Lead', fr: 'Responsable ADCS' }, board: true, photo: null },
+  { name: 'Pablo Napolitano', initials: 'PN', role: { en: 'Structural & Thermal Engineering Lead', fr: 'Responsable structure et thermique' }, board: true, photo: null },
+  { name: 'Jules Haut', initials: 'JH', role: { en: 'EPS Engineering Lead', fr: 'Responsable EPS' }, board: false, photo: null },
+  { name: 'Jean Van Beneden', initials: 'JV', role: { en: 'TT&C Engineering Lead', fr: 'Responsable TT&C' }, board: false, photo: null },
+  { name: 'Gael Derbaise', initials: 'GD', role: { en: 'Board Member', fr: 'Membre du bureau' }, board: false, photo: null },
 ];
 export const supporters = [
   { name: 'Axel Coussement', department: 'ATM' },
@@ -33,6 +34,7 @@ export const copy = {
     meta: 'A student-led 3U CubeSat project at the Université libre de Bruxelles, studying an ABEP air-intake prototype for very low Earth orbit.',
     school: 'École polytechnique de Bruxelles',
     skip: 'Skip to content', menu: 'Menu', closeMenu: 'Close menu', language: 'Language', darkTheme: 'Dark theme',
+    board: 'Board',
     footerLine: 'A student project at the École polytechnique de Bruxelles, Université libre de Bruxelles.',
     contact: 'Contact', socials: 'Follow us', back: 'Go to the home page', partOf: 'A project of',
     concept: 'Concept illustration. Not the final flight configuration.',
@@ -119,6 +121,7 @@ export const copy = {
     meta: 'Un projet étudiant de CubeSat 3U à l’Université libre de Bruxelles, consacré à un prototype d’entrée d’air ABEP pour l’orbite terrestre très basse.',
     school: 'École polytechnique de Bruxelles',
     skip: 'Aller au contenu', menu: 'Menu', closeMenu: 'Fermer le menu', language: 'Langue', darkTheme: 'Thème sombre',
+    board: 'Bureau',
     footerLine: 'Un projet étudiant de l’École polytechnique de Bruxelles, Université libre de Bruxelles.',
     contact: 'Contact', socials: 'Nous suivre', back: 'Retour à l’accueil', partOf: 'Un projet de',
     concept: 'Illustration conceptuelle. Ne représente pas la configuration de vol finale.',

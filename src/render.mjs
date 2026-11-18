@@ -5,7 +5,7 @@ import { copy, links, members, supporters, announcements } from './content.mjs';
 // Content hash appended to CSS/JS URLs so browsers fetch the new files after each deploy.
 const version = createHash('sha256').update(['styles.css', 'app.js'].map(f => readFileSync(new URL(`../assets/${f}`, import.meta.url))).join('')).digest('hex').slice(0, 8);
 
-export const pages = ['home', 'team', 'payload', 'recruitment', 'design', 'announcements'];
+export const pages = ['home', 'payload', 'design', 'announcements', 'team', 'recruitment'];
 export const filename = page => page === 'home' ? 'index.html' : `${page}.html`;
 const e = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const arrow = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75"/></svg>';
@@ -58,7 +58,7 @@ function home(lang, asset) {
 
 function team(lang, asset) {
   const t = copy[lang], c = t.team;
-  return `${pageHero(c)}<section class="section wrap"><h2 class="section-title">${e(c.section)}</h2><ul class="team-grid">${members.map(member => `<li class="person">${member.photo ? `<img class="portrait" src="${asset}${e(member.photo)}" alt="" width="480" height="540" loading="lazy">` : `<span class="avatar" aria-hidden="true">${e(member.initials)}</span>`}<div><h3>${e(member.name)}</h3>${member.role ? `<p>${e(member.role[lang])}</p>` : ''}</div></li>`).join('')}</ul>
+  return `${pageHero(c)}<section class="section wrap"><h2 class="section-title">${e(c.section)}</h2><ul class="team-grid">${members.map(member => `<li class="person">${member.photo ? `<img class="portrait" src="${asset}${e(member.photo)}" alt="" width="480" height="540" loading="lazy">` : `<span class="avatar" aria-hidden="true">${e(member.initials)}</span>`}<div><h3>${e(member.name)}</h3>${member.role ? `<p>${e(member.role[lang])}</p>` : ''}${member.board ? `<span class="board-tag">${e(t.board)}</span>` : ''}</div></li>`).join('')}</ul>
   <div class="inline-cta"><div><h3>${e(c.joinTitle)}</h3><p>${e(c.joinText)}</p></div>${link('recruitment.html', c.joinLink)}</div></section>
   <section class="section-alt"><div class="wrap section two-column"><div><h2>${e(c.supportTitle)}</h2><p>${e(c.supportText)}</p></div><dl class="spec-list">${supporters.map(s => `<div><dt>${e(s.name)}</dt><dd>${e(s.department)}</dd></div>`).join('')}</dl></div></section>`;
 }
