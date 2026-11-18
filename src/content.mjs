@@ -29,7 +29,7 @@ export const announcements = [];
 export const copy = {
   en: {
     name: 'ULB CubeSat Team',
-    nav: { home: 'Home', team: 'Team', payload: 'Payload', recruitment: 'Join us', design: 'Spacecraft', announcements: 'News' },
+    nav: { home: 'Home', team: 'Team', payload: 'Mission', recruitment: 'Join us', design: 'Spacecraft', announcements: 'News' },
     meta: 'A student-led 3U CubeSat project at the Université libre de Bruxelles, studying an ABEP air-intake prototype for very low Earth orbit.',
     school: 'École polytechnique de Bruxelles',
     skip: 'Skip to content', menu: 'Menu', closeMenu: 'Close menu', language: 'Language', darkTheme: 'Dark theme',
@@ -59,7 +59,7 @@ export const copy = {
       exploreTitle: 'More about the project',
       explore: [
         ['team', 'Team', 'The students and academic staff involved in the project.'],
-        ['design', 'Spacecraft', 'The 3U platform and the subsystems being developed.'],
+        ['payload.html#spacecraft', 'Spacecraft', 'The 3U platform and the subsystems being developed.'],
         ['announcements', 'News', 'Milestones and updates from the team.'],
       ],
       joinTitle: 'Team full for 2026–2027',
@@ -74,6 +74,7 @@ export const copy = {
       supportTitle: 'Academic support', supportText: 'Members of ULB research departments who support the project.',
     },
     payload: {
+      hero: { eyebrow: 'Mission', title: 'Payload and spacecraft', intro: 'An air-intake experiment for atmosphere-breathing electric propulsion research, carried by a 3U CubeSat.' },
       eyebrow: 'Payload', title: 'ABEP air-intake prototype',
       intro: 'The payload is an air-intake prototype for atmosphere-breathing electric propulsion research. The experiment studies the collection of residual atmospheric particles in very low Earth orbit.',
       definition: 'ABEP stands for Atmosphere-Breathing Electric Propulsion. This mission studies the air intake only.',
@@ -116,7 +117,7 @@ export const copy = {
   },
   fr: {
     name: 'ULB CubeSat Team',
-    nav: { home: 'Accueil', team: 'Équipe', payload: 'Charge utile', recruitment: 'Nous rejoindre', design: 'Satellite', announcements: 'Actualités' },
+    nav: { home: 'Accueil', team: 'Équipe', payload: 'Mission', recruitment: 'Nous rejoindre', design: 'Satellite', announcements: 'Actualités' },
     meta: 'Un projet étudiant de CubeSat 3U à l’Université libre de Bruxelles, consacré à un prototype d’entrée d’air ABEP pour l’orbite terrestre très basse.',
     school: 'École polytechnique de Bruxelles',
     skip: 'Aller au contenu', menu: 'Menu', closeMenu: 'Fermer le menu', language: 'Langue', darkTheme: 'Thème sombre',
@@ -146,7 +147,7 @@ export const copy = {
       exploreTitle: 'En savoir plus sur le projet',
       explore: [
         ['team', 'Équipe', 'Les étudiants et le personnel académique impliqués dans le projet.'],
-        ['design', 'Satellite', 'La plateforme 3U et les sous-systèmes en développement.'],
+        ['payload.html#spacecraft', 'Satellite', 'La plateforme 3U et les sous-systèmes en développement.'],
         ['announcements', 'Actualités', 'Les étapes et nouvelles de l’équipe.'],
       ],
       joinTitle: 'Équipe complète pour 2026–2027',
@@ -161,6 +162,7 @@ export const copy = {
       supportTitle: 'Soutien académique', supportText: 'Des membres de services de recherche de l’ULB qui soutiennent le projet.',
     },
     payload: {
+      hero: { eyebrow: 'Mission', title: 'Charge utile et satellite', intro: 'Une expérience d’entrée d’air pour la recherche sur la propulsion électrique à prise d’air atmosphérique, embarquée sur un CubeSat 3U.' },
       eyebrow: 'Charge utile', title: 'Prototype d’entrée d’air ABEP',
       intro: 'La charge utile est un prototype d’entrée d’air destiné à la recherche sur la propulsion électrique à prise d’air atmosphérique. L’expérience étudie la collecte des particules atmosphériques résiduelles en orbite terrestre très basse.',
       definition: 'ABEP signifie Atmosphere-Breathing Electric Propulsion. Cette mission étudie uniquement l’entrée d’air.',

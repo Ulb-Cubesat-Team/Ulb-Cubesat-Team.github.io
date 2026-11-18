@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 // Validate the published files, independently of the renderer and its route list.
 const root = fileURLToPath(new URL('../dist/', import.meta.url));
-const routeNames = ['index', 'team', 'payload', 'recruitment', 'design', 'announcements'];
+const routeNames = ['index', 'team', 'payload', 'recruitment', 'announcements'];
 const routes = routeNames.flatMap(name => [`${name}.html`, `fr/${name}.html`]);
 routes.push('404.html');
 const failures = [];

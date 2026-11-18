@@ -5,7 +5,7 @@ import { copy, links, members, supporters, announcements } from './content.mjs';
 // Content hash appended to CSS/JS URLs so browsers fetch the new files after each deploy.
 const version = createHash('sha256').update(['styles.css', 'app.js'].map(f => readFileSync(new URL(`../assets/${f}`, import.meta.url))).join('')).digest('hex').slice(0, 8);
 
-export const pages = ['home', 'payload', 'design', 'announcements', 'team', 'recruitment'];
+export const pages = ['home', 'payload', 'announcements', 'team', 'recruitment'];
 export const filename = page => page === 'home' ? 'index.html' : `${page}.html`;
 const e = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const arrow = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75"/></svg>';
@@ -52,7 +52,7 @@ function home(lang, asset) {
   return `<section class="home-hero"><div class="wrap hero-grid"><div class="hero-copy">${eyebrow(h.eyebrow)}<h1>${e(h.title)}</h1><p class="intro">${e(h.intro)}</p><div class="hero-actions">${link('payload.html', h.primary, 'button button-primary')}${link('recruitment.html', h.secondary, 'button button-secondary')}</div><div class="hero-affiliation"><span>${e(t.partOf)}</span>${logo(lang, asset)}</div></div></div></section>
   <section class="facts-strip" aria-label="${lang === 'fr' ? 'Chiffres clés' : 'Key facts'}"><dl class="wrap facts-grid">${h.facts.map(([value, label]) => `<div><dt>${e(label)}</dt><dd>${e(value)}</dd></div>`).join('')}</dl></section>
   <section class="section wrap mission-section"><div>${eyebrow(h.missionLabel)}<h2>${e(h.missionTitle)}</h2>${h.missionText.map(p => `<p class="body-large">${e(p)}</p>`).join('')}${link('payload.html', h.missionLink)}</div><div><h3 class="list-title">${e(h.stepsTitle)}</h3><ol class="numbered-list">${h.steps.map(([title, body]) => `<li><h4>${e(title)}</h4><p>${e(body)}</p></li>`).join('')}</ol></div></section>
-  <section class="section-alt"><div class="wrap section"><h2>${e(h.exploreTitle)}</h2><div class="card-grid">${h.explore.map(([page, title, body]) => `<a href="${filename(page)}" class="card"><h3>${e(title)}${arrow}</h3><p>${e(body)}</p></a>`).join('')}</div></div></section>
+  <section class="section-alt"><div class="wrap section"><h2>${e(h.exploreTitle)}</h2><div class="card-grid">${h.explore.map(([page, title, body]) => `<a href="${page.includes('.') ? page : filename(page)}" class="card"><h3>${e(title)}${arrow}</h3><p>${e(body)}</p></a>`).join('')}</div></div></section>
   <section class="cta-banner"><div class="wrap"><div><h2>${e(h.joinTitle)}</h2><p>${e(h.joinText)}</p></div>${link('recruitment.html', h.joinLink, 'button button-white')}</div></section>`;
 }
 
@@ -68,9 +68,12 @@ function intakeDiagram(c) {
   return `<figure class="intake-figure" data-diagram data-step="environment"><p class="figure-label">${e(c.diagramLabel)}</p><svg viewBox="0 0 900 365" role="img" aria-label="${e(c.diagramNote)}"><defs><linearGradient id="funnel-fill" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#cfe0f0"/><stop offset="1" stop-color="#f2f7fb"/></linearGradient><marker id="flow-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="m1 1 7 4-7 4" fill="none" stroke="#3a6fa8" stroke-width="1.4"/></marker></defs><g class="flow-field" stroke="#7aa2c8" stroke-width="1.2" fill="none">${trajectories.map((y, i) => `<path d="M60 ${y}H300L540 ${155 + i * 15}H706" stroke-dasharray="4 7" marker-end="url(#flow-arrow)"/><circle cx="${100 + (i % 3) * 50}" cy="${y}" r="3" fill="#2a64a0" stroke="none"/>`).join('')}</g><g class="intake-shell" fill="none"><path d="M300 64 540 150H732V260H540L300 336V315L535 240H711V171H535L300 87Z" fill="url(#funnel-fill)" stroke="#014a94" stroke-width="2"/><path d="M300 64V336M288 64h24M288 336h24M540 150v21M540 240v20M732 150v110" stroke="#014a94" stroke-width="2"/></g><g class="measurement-lines" stroke="#014a94" fill="none"><path d="M745 140h30v130h-30"/><circle cx="760" cy="203" r="32" stroke-width="1.5"/></g></svg><div class="diagram-legend"><span>${e(c.particles)}</span><span>${e(c.inlet)}</span><span>${e(c.collected)}</span></div><figcaption>${e(c.diagramNote)}</figcaption></figure>`;
 }
 
-function payload(lang) {
-  const c = copy[lang].payload;
-  return `${pageHero(c, `<p class="scope-note">${e(c.scope)}</p>`)}<section class="wrap section payload-section">${intakeDiagram(c)}<div class="experiment-explorer" data-explorer><div class="experiment-tabs" role="tablist" aria-label="${e(c.selectLabel)}" hidden>${c.tabs.map((tab, i) => `<button type="button" role="tab" id="tab-${tab.id}" aria-controls="panel-${tab.id}" aria-selected="${i === 0}" tabindex="${i === 0 ? '0' : '-1'}" data-step="${tab.id}">${e(tab.label)}</button>`).join('')}</div><div class="experiment-panels">${c.tabs.map(tab => `<section id="panel-${tab.id}" class="experiment-panel" data-panel="${tab.id}"><h2>${e(tab.heading)}</h2><p>${e(tab.body)}</p></section>`).join('')}</div></div><p class="footnote">${e(c.definition)}</p></section>`;
+function payload(lang, asset) {
+  const t = copy[lang], c = t.payload, d = t.design;
+  const jump = `<nav class="jump-links" aria-label="${e(c.hero.title)}"><a href="#payload">${e(c.eyebrow)}</a><a href="#spacecraft">${e(d.eyebrow)}</a></nav>`;
+  return `${pageHero(c.hero, jump)}
+  <section class="wrap section payload-section" id="payload" aria-labelledby="payload-title"><div class="section-intro">${eyebrow(c.eyebrow)}<h2 id="payload-title">${e(c.title)}</h2><p class="body-large">${e(c.intro)}</p><p class="scope-note">${e(c.scope)}</p></div>${intakeDiagram(c)}<div class="experiment-explorer" data-explorer><div class="experiment-tabs" role="tablist" aria-label="${e(c.selectLabel)}" hidden>${c.tabs.map((tab, i) => `<button type="button" role="tab" id="tab-${tab.id}" aria-controls="panel-${tab.id}" aria-selected="${i === 0}" tabindex="${i === 0 ? '0' : '-1'}" data-step="${tab.id}">${e(tab.label)}</button>`).join('')}</div><div class="experiment-panels">${c.tabs.map(tab => `<section id="panel-${tab.id}" class="experiment-panel" data-panel="${tab.id}"><h3>${e(tab.heading)}</h3><p>${e(tab.body)}</p></section>`).join('')}</div></div><p class="footnote">${e(c.definition)}</p></section>
+  <section class="section-alt" id="spacecraft" aria-labelledby="spacecraft-title"><div class="wrap section"><div class="section-intro">${eyebrow(d.eyebrow)}<h2 id="spacecraft-title">${e(d.title)}</h2><p class="body-large">${e(d.intro)}</p></div><div class="two-column design-overview"><figure class="design-figure"><img src="${asset}cubesat-concept.svg" alt="${e(t.concept)}" width="760" height="760" loading="lazy"><figcaption>${e(t.concept)}</figcaption></figure><div><h3>${e(d.platformTitle)}</h3><p class="body-large">${e(d.platformText)}</p><dl class="spec-list">${d.table.map(([key, value]) => `<div><dt>${e(key)}</dt><dd>${e(value)}</dd></div>`).join('')}</dl></div></div><h3 class="subsection-title">${e(d.disciplinesTitle)}</h3><div class="card-grid card-grid-4">${d.disciplines.map(([title, body]) => `<article class="card card-static"><h4>${e(title)}</h4><p>${e(body)}</p></article>`).join('')}</div></div></section>`;
 }
 
 function recruitment(lang) {
@@ -78,9 +81,10 @@ function recruitment(lang) {
   return `${pageHero(c, `<div class="hero-action"><p class="badge">${e(c.badge)}</p></div>`)}<section class="section wrap"><h2 class="section-title">${e(c.pathwaysTitle)}</h2><div class="card-grid">${c.pathways.map(([type, title, body]) => `<article class="card card-static"><p class="card-label">${e(type)}</p><h3>${e(title)}</h3><p>${e(body)}</p></article>`).join('')}</div></section><section class="section-alt"><div class="wrap section two-column"><h2>${e(c.skillsTitle)}</h2><ul class="tag-list">${c.skills.map(s => `<li>${e(s)}</li>`).join('')}</ul></div></section><section class="section wrap"><div class="inline-cta"><div><h3>${e(c.processTitle)}</h3><p>${e(c.processText)}</p></div>${link(`mailto:${links.email}`, c.secondary)}</div></section>`;
 }
 
-function design(lang, asset) {
-  const t = copy[lang], c = t.design;
-  return `${pageHero(c)}<section class="section wrap two-column design-overview"><figure class="design-figure"><img src="${asset}cubesat-concept.svg" alt="${e(t.concept)}" width="760" height="760" loading="lazy"><figcaption>${e(t.concept)}</figcaption></figure><div><h2>${e(c.platformTitle)}</h2><p class="body-large">${e(c.platformText)}</p><dl class="spec-list">${c.table.map(([key, value]) => `<div><dt>${e(key)}</dt><dd>${e(value)}</dd></div>`).join('')}</dl></div></section><section class="section-alt"><div class="wrap section"><h2 class="section-title">${e(c.disciplinesTitle)}</h2><div class="card-grid card-grid-4">${c.disciplines.map(([title, body]) => `<article class="card card-static"><h3>${e(title)}</h3><p>${e(body)}</p></article>`).join('')}</div></div></section>`;
+// The spacecraft page was merged into payload.html; old links land on its section.
+export function redirect(lang, target) {
+  return `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><title>ULB CubeSat Team</title><meta name="robots" content="noindex"><link rel="canonical" href="${target}"><meta http-equiv="refresh" content="0; url=${target}"></head><body><p><a href="${target}">${lang === 'fr' ? 'Cette page a déménagé.' : 'This page has moved.'}</a></p></body></html>
+`;
 }
 
 function announcementPage(lang) {
@@ -94,7 +98,7 @@ function announcementPage(lang) {
 export function render(lang, page) {
   const t = copy[lang], asset = lang === 'fr' ? '../assets/' : 'assets/';
   const title = page === 'home' ? 'ULB CubeSat Team' : `${page === '404' ? t.notFound.title : t.nav[page]} — ULB CubeSat Team`;
-  const bodies = { home, team, payload, recruitment, design, announcements: announcementPage };
+  const bodies = { home, team, payload, recruitment, announcements: announcementPage };
   const body = page === '404' ? `<section class="section wrap not-found">${eyebrow('404')}<h1>${e(t.notFound.title)}</h1><p>${e(t.notFound.text)}</p>${link('index.html', t.back, 'button button-primary')}</section>` : bodies[page](lang, asset);
   const current = filename(page === '404' ? 'home' : page);
   return `<!doctype html>

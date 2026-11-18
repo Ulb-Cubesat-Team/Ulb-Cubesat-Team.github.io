@@ -1,7 +1,7 @@
 import { rm, mkdir, cp, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { render, pages, filename } from '../src/render.mjs';
+import { render, redirect, pages, filename } from '../src/render.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const dist = path.join(root, 'dist');
@@ -11,6 +11,8 @@ const output = new Map();
 for (const lang of ['en', 'fr']) {
   for (const page of pages) output.set(path.join(lang === 'fr' ? 'fr' : '', filename(page)), render(lang, page));
 }
+// design.html was merged into payload.html; keep the old URLs working.
+for (const lang of ['en', 'fr']) output.set(path.join(lang === 'fr' ? 'fr' : '', 'design.html'), redirect(lang, 'payload.html#spacecraft'));
 // Root-relative URLs keep the 404 page working for arbitrarily nested unknown paths.
 output.set('404.html', render('en', '404').replace(/(href|src)="(?!https?:|mailto:|#|\/)([^"]+)"/g, '$1="/$2"'));
 

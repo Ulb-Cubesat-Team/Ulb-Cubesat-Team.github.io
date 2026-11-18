@@ -1,6 +1,6 @@
 # ULB CubeSat
 
-A bilingual (EN/FR) static website for the ULB CubeSat Team: mission, team, payload, recruitment, spacecraft design and news.
+A bilingual (EN/FR) static website for the ULB CubeSat Team: mission (payload and spacecraft), news, team and recruitment.
 
 The payload is an **ABEP air-intake prototype. The satellite has no onboard propulsion.**
 
@@ -29,7 +29,7 @@ Open `http://localhost:4173`. Rebuild after editing source files, then refresh t
 
 Edit the source, then run `npm run build`. Changes made only inside `dist/` are overwritten by the next build. See `CONTENT-GUIDE.md` for the content checklist.
 
-English pages are at `index.html`, `team.html`, `payload.html`, `recruitment.html`, `design.html` and `announcements.html`. French pages mirror these filenames under `fr/`. Each language has its own HTML pages; the language switch opens the equivalent page.
+English pages are at `index.html`, `payload.html` (payload and spacecraft), `announcements.html`, `team.html` and `recruitment.html`; `design.html` only redirects to `payload.html#spacecraft`. French pages mirror these filenames under `fr/`. Each language has its own HTML pages; the language switch opens the equivalent page.
 
 ## GitHub and Cloudflare Pages
 
