@@ -1,4 +1,9 @@
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { copy, links, members, supporters, announcements } from './content.mjs';
+
+// Content hash appended to CSS/JS URLs so browsers fetch the new files after each deploy.
+const version = createHash('sha256').update(['styles.css', 'app.js'].map(f => readFileSync(new URL(`../assets/${f}`, import.meta.url))).join('')).digest('hex').slice(0, 8);
 
 export const pages = ['home', 'team', 'payload', 'recruitment', 'design', 'announcements'];
 export const filename = page => page === 'home' ? 'index.html' : `${page}.html`;
@@ -8,7 +13,7 @@ const external = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path 
 const link = (href, label, cls = 'text-link', isExternal = false) => `<a class="${cls}" href="${e(href)}"${isExternal ? ' target="_blank" rel="noopener noreferrer"' : ''}>${e(label)}${isExternal ? external : arrow}</a>`;
 const eyebrow = text => `<p class="eyebrow">${e(text)}</p>`;
 const socialLinks = () => `<div class="social-links">${link(links.instagram, 'Instagram', 'text-link', true)}${link(links.linkedin, 'LinkedIn', 'text-link', true)}</div>`;
-const brand = asset => `<img src="${asset}brand/logo.svg" alt="ULB CubeSat Team" width="160" height="54">`;
+const brand = asset => `<img src="${asset}brand/logo.svg" alt="ULB CubeSat Team" width="178" height="60">`;
 const siteURL = 'https://ulbcubesat.org/';
 const logo = (lang, asset, cls = 'epb-logo') => `<img class="${cls}" src="${asset}images/logo-epb-ulb.png" alt="${e(copy[lang].logoAlt)}" width="900" height="184" loading="lazy">`;
 
@@ -97,6 +102,6 @@ export function render(lang, page) {
 <meta property="og:image" content="${siteURL}assets/brand/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="${asset}brand/favicon.svg"><link rel="apple-touch-icon" href="${asset}brand/apple-touch-icon.png">
 <link rel="alternate" hreflang="en" href="${lang === 'fr' ? '../' : ''}${current}"><link rel="alternate" hreflang="fr" href="${lang === 'en' ? 'fr/' : ''}${current}">
-<link rel="stylesheet" href="${asset}styles.css"><script src="${asset}app.js" defer></script>
+<link rel="stylesheet" href="${asset}styles.css?v=${version}"><script src="${asset}app.js?v=${version}" defer></script>
 </head><body class="page-${page}">${header(lang, page, asset)}<main id="main">${body}</main>${footer(lang, asset)}</body></html>\n`;
 }
