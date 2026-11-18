@@ -1,6 +1,6 @@
 # ULB CubeSat
 
-A bilingual website for the ULB CubeSat Team: mission, team, payload, recruitment, design and announcements. Light blue and white, with a conceptual 3U satellite illustration.
+A bilingual (EN/FR) static website for the ULB CubeSat Team: mission, team, payload, recruitment, spacecraft design and news.
 
 The payload is an **ABEP air-intake prototype. The satellite has no onboard propulsion.**
 
@@ -24,7 +24,8 @@ Open `http://localhost:4173`. Rebuild after editing source files, then refresh t
 | `src/render.mjs` | Page templates and shared navigation |
 | `assets/` | Styles, browser interactions, logo and illustration |
 | `scripts/` | Build, checks and local preview server |
-| `dist/` | Complete generated website, included for convenient upload |
+| `dist/` | Complete generated website (Cloudflare build output) |
+| `*.html`, `fr/` at the root | Copies of the generated pages, so GitHub Pages serves the same site. Do not edit by hand |
 
 Edit the source, then run `npm run build`. Changes made only inside `dist/` are overwritten by the next build. See `CONTENT-GUIDE.md` for the content checklist.
 
@@ -54,6 +55,6 @@ A separate Pages Direct Upload project can receive the `dist/` folder, or a ZIP 
 
 The supplied logo is adapted for a light background. The satellite illustration is a visual concept, not confirmed flight hardware or CAD. Names, contact details and recruitment information come from the supplied HTML; missing details remain visible placeholders.
 
-Archivo and IBM Plex Mono are served locally; their open font licenses are included in `assets/fonts/`.
+Archivo is served locally; its open font license is included in `assets/fonts/`. The EPB/ULB logo is in `assets/images/` (`logo_EPB.png` is the full-resolution original, `logo-epb-ulb.png` the web-sized copy used by the pages).
 
 No launch, manufacturing, testing or flight-readiness status is confirmed. The source page's `noindex` setting has not been carried over automatically; choose your search visibility before publishing. No license has been assigned by this repository.

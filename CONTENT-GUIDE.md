@@ -8,12 +8,12 @@ Edit `src/content.mjs`, update both languages, run `npm run build`, then `npm ru
 | --- | --- |
 | Headings and descriptions | Matching English and French text in `src/content.mjs` |
 | Contact or social links | Update `links`: use complete `https://` URLs for socials and applications, and a plain address for `email` |
-| Team members | Names and confirmed roles; add portraits to `assets/`, then set each member’s `photo` in `src/content.mjs` to the asset filename (e.g. `team/gael.webp`) |
+| Team members | Set `role` to `{ en: '…', fr: '…' }` once confirmed; add portraits to `assets/` and set `photo` to the filename (e.g. `team/gael.webp`). Members without a role are shown by name only |
 | Announcements | Add a real title, ISO date and short update in both languages to the `announcements` array in `src/content.mjs` |
 | Satellite details | Replace technical placeholders only with team-approved information |
 | Page layout | `src/render.mjs` and the relevant stylesheet in `assets/` |
 
-Keep placeholders explicit until their replacement is ready. Do not use invented portraits, project milestones, partnerships or performance figures.
+Unconfirmed details are left out of the pages rather than shown as placeholders; add them once confirmed. Do not use invented portraits, project milestones, partnerships or performance figures.
 
 ## Information supplied
 
