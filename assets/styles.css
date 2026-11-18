@@ -138,8 +138,8 @@ a.card:hover h3 svg{transform:translateX(3px)}
 /* Team */
 .team-grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
 .person{display:flex;align-items:center;gap:16px;padding:18px;border:1px solid var(--line);border-radius:var(--radius)}
-.avatar{flex:none;width:52px;height:52px;border-radius:50%;background:var(--blue-soft);color:var(--accent);display:grid;place-items:center;font-weight:600;font-size:17px}
-.person .portrait{flex:none;width:52px;height:52px;border-radius:50%;object-fit:cover}
+.avatar{flex:none;width:64px;height:64px;border-radius:50%;background:var(--blue-soft);color:var(--accent);display:grid;place-items:center;font-weight:600;font-size:17px}
+.person .portrait{flex:none;width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
 .person h3{font-size:17px}
 .person p{font-size:14px;color:var(--muted)}
 .person .board-tag{display:inline-block;margin-top:6px;font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--accent);background:var(--blue-soft);border-radius:999px;padding:2px 10px}

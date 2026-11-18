@@ -5,14 +5,14 @@ export const links = {
   email: 'cubesat.team@ulb.be',
 };
 
-// `role` is { en, fr }; `board: true` adds a "Board" tag. Set `photo` to a file in assets/ (e.g. 'team/enzo.webp') to replace the initials.
+// `role` is { en, fr }; `board: true` adds a "Board" tag. Set `photo` to a file in assets/ (e.g. 'team/enzo.webp', a 256×256 square) to replace the initials.
 export const members = [
   { name: 'Enzo Lottin', initials: 'EL', role: { en: 'Systems Engineer & Team Leader', fr: 'Ingénieur système et chef d’équipe' }, board: true, photo: null },
   { name: 'Gabriel Fallik', initials: 'GF', role: { en: 'OBC Engineering Lead', fr: 'Responsable OBC' }, board: true, photo: null },
-  { name: 'Edouard Desmedt', initials: 'ED', role: { en: 'ADCS Engineering Lead', fr: 'Responsable ADCS' }, board: true, photo: null },
+  { name: 'Edouard Desmedt', initials: 'ED', role: { en: 'ADCS Engineering Lead', fr: 'Responsable ADCS' }, board: true, photo: 'team/edouard.webp' },
   { name: 'Pablo Napolitano', initials: 'PN', role: { en: 'Structural & Thermal Engineering Lead', fr: 'Responsable structure et thermique' }, board: true, photo: null },
-  { name: 'Jules Haut', initials: 'JH', role: { en: 'EPS Engineering Lead', fr: 'Responsable EPS' }, board: false, photo: null },
-  { name: 'Jean Van Beneden', initials: 'JV', role: { en: 'TT&C Engineering Lead', fr: 'Responsable TT&C' }, board: false, photo: null },
+  { name: 'Jules Haut', initials: 'JH', role: { en: 'EPS Engineering Lead', fr: 'Responsable EPS' }, board: false, photo: 'team/jules.webp' },
+  { name: 'Jean Van Beneden', initials: 'JV', role: { en: 'TT&C Engineering Lead', fr: 'Responsable TT&C' }, board: false, photo: 'team/jean.webp' },
   { name: 'Gael Derbaise', initials: 'GD', role: { en: 'TT&C Engineering', fr: 'Ingénierie TT&C' }, board: true, photo: null },
 ];
 export const supporters = [
