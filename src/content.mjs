@@ -2,7 +2,6 @@
 export const links = {
   instagram: 'https://www.instagram.com/ulbcubesat/',
   linkedin: 'https://be.linkedin.com/company/ulb-cubesat-team',
-  apply: 'https://forms.gle/MmBzEsawnCtU6D9i9',
   email: 'cubesat.team@ulb.be',
 };
 
@@ -63,15 +62,15 @@ export const copy = {
         ['design', 'Spacecraft', 'The 3U platform and the subsystems being developed.'],
         ['announcements', 'News', 'Milestones and updates from the team.'],
       ],
-      joinTitle: 'Recruiting for 2026–2027',
-      joinText: 'Open to EPB students from BA2 to MA2, through course projects, master’s theses or independent projects.',
-      joinLink: 'How to join',
+      joinTitle: 'Team full for 2026–2027',
+      joinText: 'Thank you for your interest. Applications are closed for this academic year.',
+      joinLink: 'Recruitment',
     },
     team: {
       eyebrow: 'Team', title: 'The team',
       intro: 'The project is run by students of the École polytechnique de Bruxelles, with support from academic staff across ULB.',
       section: 'Students',
-      joinTitle: 'Interested in contributing?', joinText: 'We welcome students from every engineering discipline.', joinLink: 'How to join',
+      joinTitle: 'Interested in contributing?', joinText: 'The team is full for 2026–2027. Applications are closed for this academic year.', joinLink: 'Recruitment',
       supportTitle: 'Academic support', supportText: 'Members of ULB research departments who support the project.',
     },
     payload: {
@@ -90,8 +89,8 @@ export const copy = {
     },
     recruitment: {
       eyebrow: 'Join us', title: 'Join the team',
-      intro: 'We are looking for motivated students from all engineering disciplines. No prior experience in space systems is required.',
-      badge: 'Open to EPB students, BA2 to MA2', apply: 'Apply now', secondary: 'Questions? Email us',
+      intro: 'Thank you for your interest. Our team is now full for the 2026–2027 academic year, and applications are closed.',
+      badge: 'Applications closed for 2026–2027', secondary: 'Questions? Email us',
       pathwaysTitle: 'Ways to take part',
       pathways: [
         ['Master 1', 'Course project', '5 ECTS projects through PROJ-H405 and PROJ-H402. Topics are defined together with the team.'],
@@ -99,7 +98,7 @@ export const copy = {
         ['BA2 to MA2', 'Independent project', 'Work on a topic that matches your interests, with regular team meetings and a sustained commitment.'],
       ],
       skillsTitle: 'Relevant skills', skills: ['CAD and 3D printing', 'Electronics and PCB design', 'Telecommunications', 'C and Python', 'MATLAB / Simulink', 'Power systems'],
-      processTitle: 'How to apply', process: [['Fill in the form', 'Tell us about your study year, background and interests.'], ['Meet the team', 'We will get in touch to discuss where you could contribute.']],
+      processTitle: 'Interested for next year?', processText: 'We are not taking new members this academic year. You can still email us to ask about future opportunities.',
     },
     design: {
       eyebrow: 'Spacecraft', title: 'Spacecraft design',
@@ -150,15 +149,15 @@ export const copy = {
         ['design', 'Satellite', 'La plateforme 3U et les sous-systèmes en développement.'],
         ['announcements', 'Actualités', 'Les étapes et nouvelles de l’équipe.'],
       ],
-      joinTitle: 'Recrutement 2026–2027',
-      joinText: 'Ouvert aux étudiants de l’EPB de la BA2 à la MA2, via des projets de cours, des mémoires ou des projets libres.',
-      joinLink: 'Comment nous rejoindre',
+      joinTitle: 'Équipe complète pour 2026–2027',
+      joinText: 'Merci de votre intérêt. Les candidatures sont closes pour cette année académique.',
+      joinLink: 'Recrutement',
     },
     team: {
       eyebrow: 'Équipe', title: 'L’équipe',
       intro: 'Le projet est mené par des étudiants de l’École polytechnique de Bruxelles, avec le soutien de membres du personnel académique de l’ULB.',
       section: 'Étudiants',
-      joinTitle: 'Envie de contribuer ?', joinText: 'Nous accueillons des étudiants de toutes les filières d’ingénieur.', joinLink: 'Comment nous rejoindre',
+      joinTitle: 'Envie de contribuer ?', joinText: 'L’équipe est complète pour 2026–2027. Les candidatures sont closes pour cette année académique.', joinLink: 'Recrutement',
       supportTitle: 'Soutien académique', supportText: 'Des membres de services de recherche de l’ULB qui soutiennent le projet.',
     },
     payload: {
@@ -177,8 +176,8 @@ export const copy = {
     },
     recruitment: {
       eyebrow: 'Nous rejoindre', title: 'Rejoindre l’équipe',
-      intro: 'Nous recherchons des étudiants motivés de toutes les filières d’ingénieur. Aucune expérience préalable dans le spatial n’est requise.',
-      badge: 'Ouvert aux étudiants de l’EPB, de la BA2 à la MA2', apply: 'Postuler', secondary: 'Une question ? Écrivez-nous',
+      intro: 'Merci de votre intérêt. Notre équipe est désormais complète pour l’année académique 2026–2027 et les candidatures sont closes.',
+      badge: 'Candidatures closes pour 2026–2027', secondary: 'Une question ? Écrivez-nous',
       pathwaysTitle: 'Comment participer',
       pathways: [
         ['Master 1', 'Projet de cours', 'Projets de 5 ECTS via PROJ-H405 et PROJ-H402. Les sujets sont définis avec l’équipe.'],
@@ -186,7 +185,7 @@ export const copy = {
         ['BA2 à MA2', 'Projet libre', 'Un sujet en lien avec vos centres d’intérêt, avec des réunions d’équipe régulières et un engagement dans la durée.'],
       ],
       skillsTitle: 'Compétences utiles', skills: ['CAO et impression 3D', 'Électronique et conception de PCB', 'Télécommunications', 'C et Python', 'MATLAB / Simulink', 'Systèmes de puissance'],
-      processTitle: 'Comment postuler', process: [['Remplir le formulaire', 'Indiquez votre année d’études, votre parcours et vos centres d’intérêt.'], ['Rencontrer l’équipe', 'Nous vous recontacterons pour discuter de votre contribution.']],
+      processTitle: 'Intéressé pour l’an prochain ?', processText: 'Nous n’accueillons pas de nouveaux membres cette année académique. Vous pouvez toutefois nous écrire pour vous renseigner sur les opportunités futures.',
     },
     design: {
       eyebrow: 'Satellite', title: 'Conception du satellite',

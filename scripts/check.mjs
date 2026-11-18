@@ -73,13 +73,12 @@ async function checkReference(value, from, label) {
   }
 }
 
-// These URLs preserve the existing team's contact and application destinations.
+// These URLs preserve the existing team's contact destinations.
 const sourceLinks = [
   'https://www.instagram.com/ulbcubesat/',
   'https://be.linkedin.com/company/ulb-cubesat-team',
   'mailto:cubesat.team@ulb.be',
 ];
-const applicationURL = 'https://forms.gle/MmBzEsawnCtU6D9i9';
 
 for (const file of routes) {
   const page = await getPage(file);
@@ -121,7 +120,6 @@ for (const file of routes) {
   }
 
   for (const href of sourceLinks) expect(links.some(el => el.attrs.href === href), file, `missing team destination ${href}`);
-  if (file.endsWith('recruitment.html')) expect(links.some(el => el.attrs.href === applicationURL), file, 'application CTA must open the existing team form');
 
   const currentRoute = file === '404.html' ? 'index.html' : path.posix.basename(file);
   const languageNav = html.match(/<nav\b[^>]*class="language-switch"[^>]*>([\s\S]*?)<\/nav>/i)?.[1];
@@ -175,6 +173,6 @@ if (failures.length) {
   process.exitCode = 1;
 } else {
   console.log(`Verified ${routes.length} pages, ${linksChecked} local links and ${assetsChecked} asset references.`);
-  console.log('Language routes, metadata, contact links, application destination, no-propulsion scope and static accessibility checks passed.');
+  console.log('Language routes, metadata, contact links, no-propulsion scope and static accessibility checks passed.');
   console.log('Visual layout and JavaScript interactions require browser verification.');
 }
