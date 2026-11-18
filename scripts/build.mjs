@@ -16,7 +16,8 @@ output.set('404.html', render('en', '404').replace(/(href|src)="(?!https?:|mailt
 
 await rm(dist, { recursive: true, force: true });
 await mkdir(path.join(dist, 'fr'), { recursive: true });
-await cp(path.join(root, 'assets'), path.join(dist, 'assets'), { recursive: true });
+// assets/jcdecaux/ holds the raw brand-kit export (misnamed files, PDFs); only the cleaned copies in assets/brand/ are published.
+await cp(path.join(root, 'assets'), path.join(dist, 'assets'), { recursive: true, filter: src => !src.includes(`${path.sep}jcdecaux`) });
 await cp(path.join(root, '_headers'), path.join(dist, '_headers'));
 
 // dist/ is the Cloudflare output. The repository root gets the same pages so GitHub Pages stays in sync.

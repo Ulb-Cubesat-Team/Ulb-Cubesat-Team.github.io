@@ -8,7 +8,8 @@ const external = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path 
 const link = (href, label, cls = 'text-link', isExternal = false) => `<a class="${cls}" href="${e(href)}"${isExternal ? ' target="_blank" rel="noopener noreferrer"' : ''}>${e(label)}${isExternal ? external : arrow}</a>`;
 const eyebrow = text => `<p class="eyebrow">${e(text)}</p>`;
 const socialLinks = () => `<div class="social-links">${link(links.instagram, 'Instagram', 'text-link', true)}${link(links.linkedin, 'LinkedIn', 'text-link', true)}</div>`;
-const brand = asset => `<img src="${asset}mark.svg" alt="" width="36" height="36"><span>ULB CubeSat<span class="brand-sub">Team</span></span>`;
+const brand = asset => `<img src="${asset}brand/logo.svg" alt="ULB CubeSat Team" width="160" height="54">`;
+const siteURL = 'https://ulbcubesat.org/';
 const logo = (lang, asset, cls = 'epb-logo') => `<img class="${cls}" src="${asset}images/logo-epb-ulb.png" alt="${e(copy[lang].logoAlt)}" width="900" height="184" loading="lazy">`;
 
 function header(lang, page, asset) {
@@ -16,7 +17,7 @@ function header(lang, page, asset) {
   const current = filename(page === '404' ? 'home' : page);
   return `<a class="skip-link" href="#main">${e(t.skip)}</a>
   <header class="site-header"><div class="header-inner wrap">
-    <a href="index.html" class="brand" aria-label="ULB CubeSat Team — ${e(t.nav.home)}">${brand(asset)}</a>
+    <a href="index.html" class="brand" title="ULB CubeSat Team — ${e(t.nav.home)}">${brand(asset)}</a>
     <nav class="navigation" id="navigation" aria-label="${lang === 'fr' ? 'Navigation principale' : 'Main navigation'}">${pages.filter(p => p !== 'home').map(p => `<a href="${filename(p)}"${page === p ? ' aria-current="page"' : ''}>${e(t.nav[p])}</a>`).join('')}</nav>
     <div class="header-controls"><nav class="language-switch" aria-label="${e(t.language)}"><a href="${lang === 'en' ? '' : '../'}${current}" lang="en" hreflang="en"${lang === 'en' ? ' aria-current="true"' : ''}>EN</a><a href="${lang === 'en' ? 'fr/' : ''}${current}" lang="fr" hreflang="fr"${lang === 'fr' ? ' aria-current="true"' : ''}>FR</a></nav>
     <button class="menu-toggle" aria-label="${e(t.menu)}" aria-controls="navigation" aria-expanded="false" data-open-label="${e(t.menu)}" data-close-label="${e(t.closeMenu)}"><span>${e(t.menu)}</span><i aria-hidden="true"></i></button></div>
@@ -93,7 +94,8 @@ export function render(lang, page) {
 <title>${e(title)}</title><meta name="description" content="${e(t.meta)}">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(t.meta)}"><meta property="og:type" content="website"><meta property="og:locale" content="${lang === 'fr' ? 'fr_BE' : 'en_GB'}">
-<link rel="icon" type="image/svg+xml" href="${asset}mark.svg">
+<meta property="og:image" content="${siteURL}assets/brand/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="${asset}brand/favicon.svg"><link rel="apple-touch-icon" href="${asset}brand/apple-touch-icon.png">
 <link rel="alternate" hreflang="en" href="${lang === 'fr' ? '../' : ''}${current}"><link rel="alternate" hreflang="fr" href="${lang === 'en' ? 'fr/' : ''}${current}">
 <link rel="stylesheet" href="${asset}styles.css"><script src="${asset}app.js" defer></script>
 </head><body class="page-${page}">${header(lang, page, asset)}<main id="main">${body}</main>${footer(lang, asset)}</body></html>\n`;
