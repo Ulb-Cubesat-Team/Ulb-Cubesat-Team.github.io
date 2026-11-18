@@ -13,7 +13,12 @@ const external = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path 
 const link = (href, label, cls = 'text-link', isExternal = false) => `<a class="${cls}" href="${e(href)}"${isExternal ? ' target="_blank" rel="noopener noreferrer"' : ''}>${e(label)}${isExternal ? external : arrow}</a>`;
 const eyebrow = text => `<p class="eyebrow">${e(text)}</p>`;
 const socialLinks = () => `<div class="social-links">${link(links.instagram, 'Instagram', 'text-link', true)}${link(links.linkedin, 'LinkedIn', 'text-link', true)}</div>`;
-const brand = asset => `<img src="${asset}brand/logo.svg" alt="ULB CubeSat Team" width="178" height="60">`;
+// Both logo variants are in the page; CSS shows the one that suits the active theme.
+const brand = asset => `<img class="logo-light" src="${asset}brand/logo.svg" alt="ULB CubeSat Team" width="178" height="60"><img class="logo-dark" src="${asset}brand/logo-white.svg" alt="ULB CubeSat Team" width="178" height="60">`;
+const sun = '<svg class="icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.25" stroke="currentColor" stroke-width="1.75"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.75 1.75M16.95 16.95l1.75 1.75M5.3 18.7l1.75-1.75M16.95 7.05l1.75-1.75" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>';
+const moon = '<svg class="icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></svg>';
+// Runs before first paint so a saved dark preference never flashes the light theme.
+const themeBoot = `<script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>`;
 const siteURL = 'https://ulbcubesat.org/';
 const logo = (lang, asset, cls = 'epb-logo') => `<img class="${cls}" src="${asset}images/logo-epb-ulb.png" alt="${e(copy[lang].logoAlt)}" width="900" height="184" loading="lazy">`;
 
@@ -24,7 +29,7 @@ function header(lang, page, asset) {
   <header class="site-header"><div class="header-inner wrap">
     <a href="index.html" class="brand" title="ULB CubeSat Team — ${e(t.nav.home)}">${brand(asset)}</a>
     <nav class="navigation" id="navigation" aria-label="${lang === 'fr' ? 'Navigation principale' : 'Main navigation'}">${pages.filter(p => p !== 'home').map(p => `<a href="${filename(p)}"${page === p ? ' aria-current="page"' : ''}>${e(t.nav[p])}</a>`).join('')}</nav>
-    <div class="header-controls"><nav class="language-switch" aria-label="${e(t.language)}"><a href="${lang === 'en' ? '' : '../'}${current}" lang="en" hreflang="en"${lang === 'en' ? ' aria-current="true"' : ''}>EN</a><a href="${lang === 'en' ? 'fr/' : ''}${current}" lang="fr" hreflang="fr"${lang === 'fr' ? ' aria-current="true"' : ''}>FR</a></nav>
+    <div class="header-controls"><button type="button" class="theme-toggle" aria-pressed="false" aria-label="${e(t.darkTheme)}" title="${e(t.darkTheme)}" hidden>${moon}${sun}</button><nav class="language-switch" aria-label="${e(t.language)}"><a href="${lang === 'en' ? '' : '../'}${current}" lang="en" hreflang="en"${lang === 'en' ? ' aria-current="true"' : ''}>EN</a><a href="${lang === 'en' ? 'fr/' : ''}${current}" lang="fr" hreflang="fr"${lang === 'fr' ? ' aria-current="true"' : ''}>FR</a></nav>
     <button class="menu-toggle" aria-label="${e(t.menu)}" aria-controls="navigation" aria-expanded="false" data-open-label="${e(t.menu)}" data-close-label="${e(t.closeMenu)}"><span>${e(t.menu)}</span><i aria-hidden="true"></i></button></div>
   </div></header>`;
 }
@@ -97,7 +102,7 @@ export function render(lang, page) {
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${e(title)}</title><meta name="description" content="${e(t.meta)}">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#ffffff">${themeBoot}
 <meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(t.meta)}"><meta property="og:type" content="website"><meta property="og:locale" content="${lang === 'fr' ? 'fr_BE' : 'en_GB'}">
 <meta property="og:image" content="${siteURL}assets/brand/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="${asset}brand/favicon.svg"><link rel="apple-touch-icon" href="${asset}brand/apple-touch-icon.png">

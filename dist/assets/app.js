@@ -1,5 +1,24 @@
 document.documentElement.classList.add('js');
 
+// Light/dark theme toggle. The saved choice is applied in <head> before paint; this keeps the button in sync.
+const themeButton = document.querySelector('.theme-toggle');
+const themeColor = document.querySelector('meta[name="theme-color"]');
+function applyTheme(dark) {
+  if (dark) document.documentElement.dataset.theme = 'dark';
+  else delete document.documentElement.dataset.theme;
+  themeButton?.setAttribute('aria-pressed', String(dark));
+  themeColor?.setAttribute('content', dark ? '#0b1522' : '#ffffff');
+}
+if (themeButton) {
+  themeButton.hidden = false;
+  applyTheme(document.documentElement.dataset.theme === 'dark');
+  themeButton.addEventListener('click', () => {
+    const dark = document.documentElement.dataset.theme !== 'dark';
+    applyTheme(dark);
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch {}
+  });
+}
+
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#navigation');
 function setMenu(open) {
