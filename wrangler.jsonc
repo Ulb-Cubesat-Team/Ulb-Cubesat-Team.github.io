@@ -1,6 +1,6 @@
 // Cloudflare Workers config: serves the static site built by `npm run build` from dist/.
 {
-  "name": "ulb-cubesat-team-github-io",
+  "name": "ulb-cubesat-team",
   "compatibility_date": "2025-09-01",
   "assets": {
     "directory": "./dist",
