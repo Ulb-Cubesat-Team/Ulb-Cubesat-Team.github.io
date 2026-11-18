@@ -29,7 +29,7 @@ export const announcements = [];
 export const copy = {
   en: {
     name: 'ULB CubeSat Team',
-    nav: { home: 'Home', team: 'Team', payload: 'Mission', recruitment: 'Join us', design: 'Spacecraft', announcements: 'News' },
+    nav: { home: 'Home', team: 'Team', payload: 'Mission', partners: 'Partners', recruitment: 'Join us', design: 'Spacecraft', announcements: 'News' },
     meta: 'A student-led 3U CubeSat project at the Université libre de Bruxelles, studying an ABEP air-intake prototype for very low Earth orbit.',
     school: 'École polytechnique de Bruxelles',
     skip: 'Skip to content', menu: 'Menu', closeMenu: 'Close menu', language: 'Language', darkTheme: 'Dark theme',
@@ -108,6 +108,14 @@ export const copy = {
       table: [['Format', '3U CubeSat'], ['Payload', 'ABEP air-intake prototype'], ['Propulsion', 'None'], ['Design phase', 'Concept']],
       disciplinesTitle: 'Subsystems', disciplines: [['Structure and integration', 'Mechanical design of the platform and integration of the experiment.'], ['Power and electronics', 'Electrical power and onboard electronics.'], ['Software and communications', 'Onboard software and the link between the spacecraft and the ground.'], ['Attitude determination', 'Estimating the orientation of the spacecraft.']],
     },
+    partners: {
+      eyebrow: 'Partners', title: 'Partner with us',
+      intro: 'We are seeking partnerships for the 2026–2027 academic year. If your company, lab or organisation would like to support a student-built satellite, we would love to hear from you.',
+      contact: 'Contact us about a partnership', subject: 'Partnership',
+      waysTitle: 'Ways to get involved',
+      ways: [['Expertise', 'Technical advice, design reviews or mentoring for our engineering leads.'], ['Hardware and facilities', 'Components, tools, or access to test and integration facilities.'], ['Funding', 'Financial support for prototypes, testing and launch preparation.']],
+      ctaTitle: 'Interested?', ctaText: 'Write to us and we will get back to you to discuss how we could work together.',
+    },
     announcements: {
       eyebrow: 'News', title: 'News',
       intro: 'Milestones and updates from the ULB CubeSat Team.',
@@ -117,7 +125,7 @@ export const copy = {
   },
   fr: {
     name: 'ULB CubeSat Team',
-    nav: { home: 'Accueil', team: 'Équipe', payload: 'Mission', recruitment: 'Nous rejoindre', design: 'Satellite', announcements: 'Actualités' },
+    nav: { home: 'Accueil', team: 'Équipe', payload: 'Mission', partners: 'Partenaires', recruitment: 'Nous rejoindre', design: 'Satellite', announcements: 'Actualités' },
     meta: 'Un projet étudiant de CubeSat 3U à l’Université libre de Bruxelles, consacré à un prototype d’entrée d’air ABEP pour l’orbite terrestre très basse.',
     school: 'École polytechnique de Bruxelles',
     skip: 'Aller au contenu', menu: 'Menu', closeMenu: 'Fermer le menu', language: 'Langue', darkTheme: 'Thème sombre',
@@ -195,6 +203,14 @@ export const copy = {
       platformTitle: 'Vue d’ensemble', platformText: 'L’illustration présente le concept général, pas une configuration définitive. Les informations de conception détaillées seront publiées après validation.',
       table: [['Format', 'CubeSat 3U'], ['Charge utile', 'Prototype d’entrée d’air ABEP'], ['Propulsion', 'Aucune'], ['Phase de conception', 'Concept']],
       disciplinesTitle: 'Sous-systèmes', disciplines: [['Structure et intégration', 'Conception mécanique de la plateforme et intégration de l’expérience.'], ['Puissance et électronique', 'Alimentation électrique et électronique embarquée.'], ['Logiciel et communications', 'Logiciel de bord et liaison entre le satellite et le sol.'], ['Détermination d’attitude', 'Estimation de l’orientation du satellite.']],
+    },
+    partners: {
+      eyebrow: 'Partenaires', title: 'Devenir partenaire',
+      intro: 'Nous recherchons des partenaires pour l’année académique 2026–2027. Si votre entreprise, votre laboratoire ou votre organisation souhaite soutenir un satellite conçu par des étudiants, contactez-nous.',
+      contact: 'Nous contacter pour un partenariat', subject: 'Partenariat',
+      waysTitle: 'Comment nous soutenir',
+      ways: [['Expertise', 'Conseils techniques, revues de conception ou mentorat pour nos responsables de sous-systèmes.'], ['Matériel et installations', 'Composants, outils, ou accès à des installations de test et d’intégration.'], ['Financement', 'Soutien financier pour les prototypes, les essais et la préparation du lancement.']],
+      ctaTitle: 'Intéressé ?', ctaText: 'Écrivez-nous et nous reviendrons vers vous pour discuter d’une collaboration.',
     },
     announcements: {
       eyebrow: 'Actualités', title: 'Actualités',

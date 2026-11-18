@@ -5,7 +5,7 @@ import { copy, links, members, supporters, announcements } from './content.mjs';
 // Content hash appended to CSS/JS URLs so browsers fetch the new files after each deploy.
 const version = createHash('sha256').update(['styles.css', 'app.js'].map(f => readFileSync(new URL(`../assets/${f}`, import.meta.url))).join('')).digest('hex').slice(0, 8);
 
-export const pages = ['home', 'payload', 'announcements', 'team', 'recruitment'];
+export const pages = ['home', 'payload', 'announcements', 'team', 'partners', 'recruitment'];
 export const filename = page => page === 'home' ? 'index.html' : `${page}.html`;
 const e = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const arrow = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75"/></svg>';
@@ -87,6 +87,11 @@ export function redirect(lang, target) {
 `;
 }
 
+function partners(lang) {
+  const c = copy[lang].partners, mail = `mailto:${links.email}?subject=${encodeURIComponent(c.subject)}`;
+  return `${pageHero(c, `<div class="hero-action">${link(mail, c.contact, 'button button-primary')}</div>`)}<section class="section wrap"><h2 class="section-title">${e(c.waysTitle)}</h2><div class="card-grid">${c.ways.map(([title, body]) => `<article class="card card-static"><h3>${e(title)}</h3><p>${e(body)}</p></article>`).join('')}</div><div class="inline-cta"><div><h3>${e(c.ctaTitle)}</h3><p>${e(c.ctaText)}</p></div>${link(mail, links.email)}</div></section>`;
+}
+
 function announcementPage(lang) {
   const c = copy[lang].announcements;
   const date = d => new Intl.DateTimeFormat(lang === 'fr' ? 'fr-BE' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(d));
@@ -98,7 +103,7 @@ function announcementPage(lang) {
 export function render(lang, page) {
   const t = copy[lang], asset = lang === 'fr' ? '../assets/' : 'assets/';
   const title = page === 'home' ? 'ULB CubeSat Team' : `${page === '404' ? t.notFound.title : t.nav[page]} — ULB CubeSat Team`;
-  const bodies = { home, team, payload, recruitment, announcements: announcementPage };
+  const bodies = { home, team, payload, partners, recruitment, announcements: announcementPage };
   const body = page === '404' ? `<section class="section wrap not-found">${eyebrow('404')}<h1>${e(t.notFound.title)}</h1><p>${e(t.notFound.text)}</p>${link('index.html', t.back, 'button button-primary')}</section>` : bodies[page](lang, asset);
   const current = filename(page === '404' ? 'home' : page);
   return `<!doctype html>
