@@ -36,7 +36,6 @@ export const copy = {
     board: 'Board',
     footerLine: 'A student project at the École polytechnique de Bruxelles, Université libre de Bruxelles.',
     contact: 'Contact', socials: 'Follow us', back: 'Go to the home page', partOf: 'A project of',
-    concept: 'Concept illustration. Not the final flight configuration.',
     logoAlt: 'École polytechnique de Bruxelles, Université libre de Bruxelles',
     home: {
       eyebrow: 'Student space project · ULB',
@@ -104,7 +103,7 @@ export const copy = {
     design: {
       eyebrow: 'Spacecraft', title: 'Spacecraft design',
       intro: 'A 3U CubeSat platform built around the air-intake experiment. The design is currently at concept stage.',
-      platformTitle: 'Platform overview', platformText: 'The illustration shows the general concept, not a final configuration. Detailed design information will be published once it has been reviewed.',
+      platformTitle: 'Platform overview', platformText: 'The spacecraft is at concept stage and its configuration is not final. Detailed design information will be published once it has been reviewed.',
       table: [['Format', '3U CubeSat'], ['Payload', 'ABEP air-intake prototype'], ['Propulsion', 'None'], ['Design phase', 'Concept']],
       disciplinesTitle: 'Subsystems', disciplines: [['Structure and integration', 'Mechanical design of the platform and integration of the experiment.'], ['Power and electronics', 'Electrical power and onboard electronics.'], ['Software and communications', 'Onboard software and the link between the spacecraft and the ground.'], ['Attitude determination', 'Estimating the orientation of the spacecraft.']],
     },
@@ -132,7 +131,6 @@ export const copy = {
     board: 'Bureau',
     footerLine: 'Un projet étudiant de l’École polytechnique de Bruxelles, Université libre de Bruxelles.',
     contact: 'Contact', socials: 'Nous suivre', back: 'Retour à l’accueil', partOf: 'Un projet de',
-    concept: 'Illustration conceptuelle. Ne représente pas la configuration de vol finale.',
     logoAlt: 'École polytechnique de Bruxelles, Université libre de Bruxelles',
     home: {
       eyebrow: 'Projet spatial étudiant · ULB',
@@ -200,7 +198,7 @@ export const copy = {
     design: {
       eyebrow: 'Satellite', title: 'Conception du satellite',
       intro: 'Une plateforme CubeSat 3U conçue autour de l’expérience d’entrée d’air. La conception est actuellement au stade conceptuel.',
-      platformTitle: 'Vue d’ensemble', platformText: 'L’illustration présente le concept général, pas une configuration définitive. Les informations de conception détaillées seront publiées après validation.',
+      platformTitle: 'Vue d’ensemble', platformText: 'Le satellite est au stade conceptuel et sa configuration n’est pas définitive. Les informations de conception détaillées seront publiées après validation.',
       table: [['Format', 'CubeSat 3U'], ['Charge utile', 'Prototype d’entrée d’air ABEP'], ['Propulsion', 'Aucune'], ['Phase de conception', 'Concept']],
       disciplinesTitle: 'Sous-systèmes', disciplines: [['Structure et intégration', 'Conception mécanique de la plateforme et intégration de l’expérience.'], ['Puissance et électronique', 'Alimentation électrique et électronique embarquée.'], ['Logiciel et communications', 'Logiciel de bord et liaison entre le satellite et le sol.'], ['Détermination d’attitude', 'Estimation de l’orientation du satellite.']],
     },

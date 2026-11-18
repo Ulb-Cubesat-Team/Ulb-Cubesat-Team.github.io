@@ -192,11 +192,8 @@ html:not(.js) .experiment-panel+.experiment-panel{border-top:1px solid var(--lin
 .stacked-actions{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:24px}
 
 /* Spacecraft */
-.design-overview{align-items:center}
-.design-figure{background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
-.design-figure img{width:100%;max-width:480px;margin-inline:auto}
+.design-overview{align-items:start}
 .design-overview h2{margin-bottom:12px}
-.design-overview .spec-list{margin-top:28px}
 
 /* News */
 .news-list>article{display:grid;grid-template-columns:180px 1fr;gap:24px;padding-block:28px;border-top:1px solid var(--line)}
