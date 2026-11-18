@@ -14,7 +14,7 @@ export const members = [
   { name: 'Pablo Napolitano', initials: 'PN', role: { en: 'Structural & Thermal Engineering Lead', fr: 'Responsable structure et thermique' }, board: true, photo: null },
   { name: 'Jules Haut', initials: 'JH', role: { en: 'EPS Engineering Lead', fr: 'Responsable EPS' }, board: false, photo: null },
   { name: 'Jean Van Beneden', initials: 'JV', role: { en: 'TT&C Engineering Lead', fr: 'Responsable TT&C' }, board: false, photo: null },
-  { name: 'Gael Derbaise', initials: 'GD', role: { en: 'Board Member', fr: 'Membre du bureau' }, board: false, photo: null },
+  { name: 'Gael Derbaise', initials: 'GD', role: { en: 'TT&C Engineering', fr: 'Ingénierie TT&C' }, board: true, photo: null },
 ];
 export const supporters = [
   { name: 'Axel Coussement', department: 'ATM' },
