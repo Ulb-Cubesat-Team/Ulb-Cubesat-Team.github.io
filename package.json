@@ -1,0 +1,13 @@
+{
+  "name": "ulb-cubesat",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The bilingual ULB CubeSat Team website",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
