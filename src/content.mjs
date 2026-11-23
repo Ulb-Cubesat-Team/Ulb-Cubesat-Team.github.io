@@ -20,9 +20,9 @@ export const members = [
   { name: 'Harry Fotso', lead: 'Gabriel Fallik', initials: 'HF', role: { en: 'Spacecraft Operations Software Engineering', fr: 'Ingénierie logicielle des opérations du satellite' }, board: false, photo: 'team/harry.webp' },
 ];
 export const supporters = [
-  { name: 'Axel Coussement', department: 'ATM' },
-  { name: 'Thierry Magin', department: 'ATM' },
-  { name: 'François Quitin', department: 'BEAMS' },
+  { name: 'Prof. Axel Coussement', department: 'ATM' },
+  { name: 'Prof. Thierry Magin', department: 'ATM' },
+  { name: 'Prof. François Quitin', department: 'BEAMS' },
   { name: 'Cédric Boey', department: 'BAPP' },
 ];
 
