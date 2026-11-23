@@ -5,7 +5,7 @@ export const links = {
   email: 'cubesat.team@ulb.be',
 };
 
-// `role` is { en, fr }; `board: true` adds a "Board" tag. Members with `lead` (a lead's name) appear under that lead on the Team page; members without one are leads. Set `photo` to a file in assets/ (e.g. 'team/enzo.webp', a 256×256 square) to replace the initials.
+// `role` is { en, fr }; `board: true` adds a "Board" tag. Members without `lead` are shown as leads; `lead` (a lead's name) sets the order of the team members. Set `photo` to a file in assets/ (e.g. 'team/enzo.webp', a 256×256 square) to replace the initials.
 export const members = [
   { name: 'Enzo Lottin', initials: 'EL', role: { en: 'Systems Engineer & Team Leader', fr: 'Ingénieur système et chef d’équipe' }, board: true, photo: 'team/enzo.webp' },
   { name: 'Gabriel Fallik', initials: 'GF', role: { en: 'OBC Engineering Lead', fr: 'Responsable OBC' }, board: true, photo: 'team/gabriel.webp' },
@@ -73,7 +73,7 @@ export const copy = {
     team: {
       eyebrow: 'Team', title: 'The team',
       intro: 'The project is run by students of the École polytechnique de Bruxelles, with support from academic staff across ULB.',
-      section: 'Students',
+      section: 'Students', leadsTitle: 'Engineering leads', membersTitle: 'Team members',
       joinTitle: 'Interested in contributing?', joinText: 'The team is full for 2026–2027. Applications are closed for this academic year.', joinLink: 'Recruitment',
       supportTitle: 'Academic support', supportText: 'Members of ULB research departments who support the project.',
     },
@@ -168,7 +168,7 @@ export const copy = {
     team: {
       eyebrow: 'Équipe', title: 'L’équipe',
       intro: 'Le projet est mené par des étudiants de l’École polytechnique de Bruxelles, avec le soutien de membres du personnel académique de l’ULB.',
-      section: 'Étudiants',
+      section: 'Étudiants', leadsTitle: 'Responsables', membersTitle: 'Membres de l’équipe',
       joinTitle: 'Envie de contribuer ?', joinText: 'L’équipe est complète pour 2026–2027. Les candidatures sont closes pour cette année académique.', joinLink: 'Recrutement',
       supportTitle: 'Soutien académique', supportText: 'Des membres de services de recherche de l’ULB qui soutiennent le projet.',
     },

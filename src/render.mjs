@@ -57,12 +57,12 @@ function home(lang, asset) {
 }
 
 function person(member, lang, asset, t, variant = '') {
-  return `<div class="person${variant ? ` person-${variant}` : ''}">${member.photo ? `<img class="portrait" src="${asset}${e(member.photo)}" alt="" width="256" height="256" loading="lazy">` : `<span class="avatar" aria-hidden="true">${e(member.initials)}</span>`}<div><h3>${e(member.name)}</h3>${member.role ? `<p>${e(member.role[lang])}</p>` : ''}${member.board ? `<span class="board-tag">${e(t.board)}</span>` : ''}</div></div>`;
+  return `<div class="person${variant ? ` person-${variant}` : ''}">${member.photo ? `<img class="portrait" src="${asset}${e(member.photo)}" alt="" width="256" height="256" loading="lazy">` : `<span class="avatar" aria-hidden="true">${e(member.initials)}</span>`}<div><h4>${e(member.name)}</h4>${member.role ? `<p>${e(member.role[lang])}</p>` : ''}${member.board ? `<span class="board-tag">${e(t.board)}</span>` : ''}</div></div>`;
 }
 
 function team(lang, asset) {
   const t = copy[lang], c = t.team;
-  return `${pageHero(c)}<section class="section wrap"><h2 class="section-title">${e(c.section)}</h2><ul class="org">${members.filter(m => !m.lead).map(lead => { const reports = members.filter(m => m.lead === lead.name); return `<li class="org-group">${person(lead, lang, asset, t, 'lead')}${reports.length ? `<ul class="org-reports">${reports.map(m => `<li>${person(m, lang, asset, t)}</li>`).join('')}</ul>` : ''}</li>`; }).join('')}</ul>
+  return `${pageHero(c)}<section class="section wrap"><h2 class="section-title">${e(c.section)}</h2>${(() => { const leads = members.filter(m => !m.lead), crew = leads.flatMap(l => members.filter(m => m.lead === l.name)); return `<h3 class="team-group-title">${e(c.leadsTitle)}</h3><ul class="team-grid team-leads">${leads.map(m => `<li>${person(m, lang, asset, t, 'lead')}</li>`).join('')}</ul><h3 class="team-group-title">${e(c.membersTitle)}</h3><ul class="team-grid">${crew.map(m => `<li>${person(m, lang, asset, t)}</li>`).join('')}</ul>`; })()}
   <div class="inline-cta"><div><h3>${e(c.joinTitle)}</h3><p>${e(c.joinText)}</p></div>${link('recruitment.html', c.joinLink)}</div></section>
   <section class="section-alt"><div class="wrap section two-column"><div><h2>${e(c.supportTitle)}</h2><p>${e(c.supportText)}</p></div><dl class="spec-list">${supporters.map(s => `<div><dt>${e(s.name)}</dt><dd>${e(s.department)}</dd></div>`).join('')}</dl></div></section>`;
 }
