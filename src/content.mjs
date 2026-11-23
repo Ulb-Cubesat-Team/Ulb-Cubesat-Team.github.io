@@ -16,6 +16,7 @@ export const members = [
   { name: 'Gael Derbaise', lead: 'Jean Van Beneden', initials: 'GD', role: { en: 'TT&C Engineering', fr: 'Ingénierie TT&C' }, board: true, photo: 'team/gael.webp' },
   { name: 'Matteo Napolitano', lead: 'Enzo Lottin', initials: 'MN', role: { en: 'Systems Engineering', fr: 'Ingénierie système' }, board: false, photo: 'team/matteo.webp' },
   { name: 'Marco Paniura', lead: 'Edouard Desmedt', initials: 'MP', role: { en: 'ADCS Engineering', fr: 'Ingénierie ADCS' }, board: false, photo: 'team/marco.webp' },
+  { name: 'Joe Dahdah', lead: 'Edouard Desmedt', initials: 'JD', role: { en: 'ADCS Star Tracker', fr: 'ADCS – capteur stellaire' }, board: false, photo: 'team/joe.webp' },
   { name: 'Ayman Salah', lead: 'Pablo Napolitano', initials: 'AS', role: { en: 'Structural & Thermal Engineering', fr: 'Ingénierie structure et thermique' }, board: false, photo: 'team/ayman.webp' },
   { name: 'Harry Fotso', lead: 'Gabriel Fallik', initials: 'HF', role: { en: 'Spacecraft Operations Software Engineering', fr: 'Ingénierie logicielle des opérations du satellite' }, board: false, photo: 'team/harry.webp' },
 ];
