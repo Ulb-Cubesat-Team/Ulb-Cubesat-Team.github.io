@@ -14,6 +14,9 @@ export const members = [
   { name: 'Jules Haut', initials: 'JH', role: { en: 'EPS Engineering Lead', fr: 'Responsable EPS' }, board: false, photo: 'team/jules.webp' },
   { name: 'Jean Van Beneden', initials: 'JV', role: { en: 'TT&C Engineering Lead', fr: 'Responsable TT&C' }, board: false, photo: 'team/jean.webp' },
   { name: 'Gael Derbaise', initials: 'GD', role: { en: 'TT&C Engineering', fr: 'Ingénierie TT&C' }, board: true, photo: 'team/gael.webp' },
+  { name: 'Matteo Napolitano', initials: 'MN', role: { en: 'Systems Engineer', fr: 'Ingénieur système' }, board: false, photo: 'team/matteo.webp' },
+  { name: 'Marco Paniura', initials: 'MP', role: { en: 'ADCS Engineering', fr: 'Ingénierie ADCS' }, board: false, photo: 'team/marco.webp' },
+  { name: 'Ayman Salah', initials: 'AS', role: { en: 'Structural & Thermal Engineering', fr: 'Ingénierie structure et thermique' }, board: false, photo: 'team/ayman.webp' },
 ];
 export const supporters = [
   { name: 'Axel Coussement', department: 'ATM' },
