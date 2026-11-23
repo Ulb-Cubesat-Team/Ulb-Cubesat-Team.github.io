@@ -5,7 +5,7 @@ export const links = {
   email: 'cubesat.team@ulb.be',
 };
 
-// `role` is { en, fr }; `board: true` adds a "Board" tag. Set `photo` to a file in assets/ (e.g. 'team/enzo.webp', a 256×256 square) to replace the initials.
+// `role` is { en, fr }; `board: true` adds a "Board" tag. Members with `lead` (a lead's name) appear under that lead on the Team page; members without one are leads. Set `photo` to a file in assets/ (e.g. 'team/enzo.webp', a 256×256 square) to replace the initials.
 export const members = [
   { name: 'Enzo Lottin', initials: 'EL', role: { en: 'Systems Engineer & Team Leader', fr: 'Ingénieur système et chef d’équipe' }, board: true, photo: 'team/enzo.webp' },
   { name: 'Gabriel Fallik', initials: 'GF', role: { en: 'OBC Engineering Lead', fr: 'Responsable OBC' }, board: true, photo: 'team/gabriel.webp' },
@@ -13,10 +13,11 @@ export const members = [
   { name: 'Pablo Napolitano', initials: 'PN', role: { en: 'Structural & Thermal Engineering Lead', fr: 'Responsable structure et thermique' }, board: true, photo: 'team/pablo.webp' },
   { name: 'Jules Haut', initials: 'JH', role: { en: 'EPS Engineering Lead', fr: 'Responsable EPS' }, board: false, photo: 'team/jules.webp' },
   { name: 'Jean Van Beneden', initials: 'JV', role: { en: 'TT&C Engineering Lead', fr: 'Responsable TT&C' }, board: false, photo: 'team/jean.webp' },
-  { name: 'Gael Derbaise', initials: 'GD', role: { en: 'TT&C Engineering', fr: 'Ingénierie TT&C' }, board: true, photo: 'team/gael.webp' },
-  { name: 'Matteo Napolitano', initials: 'MN', role: { en: 'Systems Engineer', fr: 'Ingénieur système' }, board: false, photo: 'team/matteo.webp' },
-  { name: 'Marco Paniura', initials: 'MP', role: { en: 'ADCS Engineering', fr: 'Ingénierie ADCS' }, board: false, photo: 'team/marco.webp' },
-  { name: 'Ayman Salah', initials: 'AS', role: { en: 'Structural & Thermal Engineering', fr: 'Ingénierie structure et thermique' }, board: false, photo: 'team/ayman.webp' },
+  { name: 'Gael Derbaise', lead: 'Jean Van Beneden', initials: 'GD', role: { en: 'TT&C Engineering', fr: 'Ingénierie TT&C' }, board: true, photo: 'team/gael.webp' },
+  { name: 'Matteo Napolitano', lead: 'Enzo Lottin', initials: 'MN', role: { en: 'Systems Engineering', fr: 'Ingénierie système' }, board: false, photo: 'team/matteo.webp' },
+  { name: 'Marco Paniura', lead: 'Edouard Desmedt', initials: 'MP', role: { en: 'ADCS Engineering', fr: 'Ingénierie ADCS' }, board: false, photo: 'team/marco.webp' },
+  { name: 'Ayman Salah', lead: 'Pablo Napolitano', initials: 'AS', role: { en: 'Structural & Thermal Engineering', fr: 'Ingénierie structure et thermique' }, board: false, photo: 'team/ayman.webp' },
+  { name: 'Harry Fotso', lead: 'Gabriel Fallik', initials: 'HF', role: { en: 'Spacecraft Operations Software Engineering', fr: 'Ingénierie logicielle des opérations du satellite' }, board: false, photo: 'team/harry.webp' },
 ];
 export const supporters = [
   { name: 'Axel Coussement', department: 'ATM' },

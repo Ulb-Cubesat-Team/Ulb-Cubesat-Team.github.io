@@ -56,9 +56,13 @@ function home(lang, asset) {
   <section class="cta-banner"><div class="wrap"><div><h2>${e(h.joinTitle)}</h2><p>${e(h.joinText)}</p></div>${link('recruitment.html', h.joinLink, 'button button-white')}</div></section>`;
 }
 
+function person(member, lang, asset, t, variant = '') {
+  return `<div class="person${variant ? ` person-${variant}` : ''}">${member.photo ? `<img class="portrait" src="${asset}${e(member.photo)}" alt="" width="256" height="256" loading="lazy">` : `<span class="avatar" aria-hidden="true">${e(member.initials)}</span>`}<div><h3>${e(member.name)}</h3>${member.role ? `<p>${e(member.role[lang])}</p>` : ''}${member.board ? `<span class="board-tag">${e(t.board)}</span>` : ''}</div></div>`;
+}
+
 function team(lang, asset) {
   const t = copy[lang], c = t.team;
-  return `${pageHero(c)}<section class="section wrap"><h2 class="section-title">${e(c.section)}</h2><ul class="team-grid">${members.map(member => `<li class="person">${member.photo ? `<img class="portrait" src="${asset}${e(member.photo)}" alt="" width="256" height="256" loading="lazy">` : `<span class="avatar" aria-hidden="true">${e(member.initials)}</span>`}<div><h3>${e(member.name)}</h3>${member.role ? `<p>${e(member.role[lang])}</p>` : ''}${member.board ? `<span class="board-tag">${e(t.board)}</span>` : ''}</div></li>`).join('')}</ul>
+  return `${pageHero(c)}<section class="section wrap"><h2 class="section-title">${e(c.section)}</h2><ul class="org">${members.filter(m => !m.lead).map(lead => { const reports = members.filter(m => m.lead === lead.name); return `<li class="org-group">${person(lead, lang, asset, t, 'lead')}${reports.length ? `<ul class="org-reports">${reports.map(m => `<li>${person(m, lang, asset, t)}</li>`).join('')}</ul>` : ''}</li>`; }).join('')}</ul>
   <div class="inline-cta"><div><h3>${e(c.joinTitle)}</h3><p>${e(c.joinText)}</p></div>${link('recruitment.html', c.joinLink)}</div></section>
   <section class="section-alt"><div class="wrap section two-column"><div><h2>${e(c.supportTitle)}</h2><p>${e(c.supportText)}</p></div><dl class="spec-list">${supporters.map(s => `<div><dt>${e(s.name)}</dt><dd>${e(s.department)}</dd></div>`).join('')}</dl></div></section>`;
 }
