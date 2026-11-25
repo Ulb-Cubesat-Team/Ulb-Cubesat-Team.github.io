@@ -3,7 +3,7 @@
 
 :root{
   --ink:#0f2236;--text:#3d5166;--muted:#5d7084;
-  --blue:#1d4d90;--blue-dark:#163c72;--blue-soft:#e8f0f8;--accent:#1d4d90;
+  --blue:#1d4d90;--blue-dark:#163c72;--blue-soft:#e8f0f8;--accent:#1d4d90;--amber:#9a5b0b;--amber-soft:#fcf1e2;
   --bg:#fff;--bg-alt:#f5f8fb;--surface:#fff;--line:#dbe3eb;
   color-scheme:light;
   --max:1160px;--gutter:clamp(16px,4vw,48px);--radius:6px;
@@ -149,6 +149,9 @@ a.card:hover h3 svg{transform:translateX(3px)}
 .person p{font-size:13.5px;line-height:1.45;color:var(--muted);margin-top:2px}
 .person .board-tag{display:inline-block;margin-top:8px;font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--accent);background:var(--blue-soft);border-radius:999px;padding:2px 10px}
 .person-lead .board-tag{background:var(--surface)}
+.team-group-management{color:var(--amber)}
+.person-management{border-color:var(--amber);border-top-width:3px;background:var(--amber-soft)}
+.person-management .board-tag{background:var(--surface);color:var(--amber)}
 @media(max-width:1024px){.team-leads{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:560px){.team-grid,.team-leads{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.person{padding:16px 10px}.person .portrait,.avatar{width:64px;height:64px}}
 .inline-cta{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:40px;padding:24px;background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--radius)}

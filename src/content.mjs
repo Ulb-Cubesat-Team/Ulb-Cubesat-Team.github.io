@@ -5,7 +5,7 @@ export const links = {
   email: 'cubesat.team@ulb.be',
 };
 
-// `role` is { en, fr }; `board: true` adds a "Board" tag. Members without `lead` are shown as leads; `lead` (a lead's name) sets the order of the team members. Set `photo` to a file in assets/ (e.g. 'team/enzo.webp', a 256×256 square) to replace the initials.
+// `role` is { en, fr }; `board: true` adds a "Board" tag. Members with `group: 'management'` are shown in their own group; other members without `lead` are shown as leads; `lead` (a lead's name) sets the order of the team members. Set `photo` to a file in assets/ (e.g. 'team/enzo.webp', a 256×256 square) to replace the initials.
 export const members = [
   { name: 'Enzo Lottin', initials: 'EL', role: { en: 'Systems Engineer & Team Leader', fr: 'Ingénieur système et chef d’équipe' }, board: true, photo: 'team/enzo.webp' },
   { name: 'Gabriel Fallik', initials: 'GF', role: { en: 'OBC Engineering Lead', fr: 'Responsable OBC' }, board: true, photo: 'team/gabriel.webp' },
@@ -13,11 +13,13 @@ export const members = [
   { name: 'Pablo Napolitano', initials: 'PN', role: { en: 'Structural & Thermal Engineering Lead', fr: 'Responsable structure et thermique' }, board: true, photo: 'team/pablo.webp' },
   { name: 'Jules Haut', initials: 'JH', role: { en: 'EPS Engineering Lead', fr: 'Responsable EPS' }, board: false, photo: 'team/jules.webp' },
   { name: 'Jean Van Beneden', initials: 'JV', role: { en: 'TT&C Engineering Lead', fr: 'Responsable TT&C' }, board: false, photo: 'team/jean.webp' },
+  { name: 'Alezia Musielak', group: 'management', initials: 'AM', role: { en: 'Head of Legal & Partnerships', fr: 'Responsable juridique et partenariats' }, board: false, photo: 'team/alezia.webp' },
   { name: 'Gael Derbaise', lead: 'Jean Van Beneden', initials: 'GD', role: { en: 'TT&C Engineering', fr: 'Ingénierie TT&C' }, board: true, photo: 'team/gael.webp' },
   { name: 'Matteo Napolitano', lead: 'Enzo Lottin', initials: 'MN', role: { en: 'Systems Engineering', fr: 'Ingénierie système' }, board: false, photo: 'team/matteo.webp' },
   { name: 'Marco Paniura', lead: 'Edouard Desmedt', initials: 'MP', role: { en: 'ADCS Engineering', fr: 'Ingénierie ADCS' }, board: false, photo: 'team/marco.webp' },
   { name: 'Joe Dahdah', lead: 'Edouard Desmedt', initials: 'JD', role: { en: 'ADCS Star Tracker', fr: 'ADCS – capteur stellaire' }, board: false, photo: 'team/joe.webp' },
   { name: 'Ayman Salah', lead: 'Pablo Napolitano', initials: 'AS', role: { en: 'Structural & Thermal Engineering', fr: 'Ingénierie structure et thermique' }, board: false, photo: 'team/ayman.webp' },
+  { name: 'Olivia Oubessilek', lead: 'Jules Haut', initials: 'OO', role: { en: 'EPS Engineering', fr: 'Ingénierie EPS' }, board: false, photo: 'team/olivia.webp' },
   { name: 'Harry Fotso', lead: 'Gabriel Fallik', initials: 'HF', role: { en: 'Spacecraft Operations Software Engineering', fr: 'Ingénierie logicielle des opérations du satellite' }, board: false, photo: 'team/harry.webp' },
 ];
 export const supporters = [
@@ -73,7 +75,7 @@ export const copy = {
     team: {
       eyebrow: 'Team', title: 'The team',
       intro: 'The project is run by students of the École polytechnique de Bruxelles, with support from academic staff across ULB.',
-      section: 'Students', leadsTitle: 'Engineering leads', membersTitle: 'Team members',
+      section: 'Students', leadsTitle: 'Engineering leads', managementTitle: 'Management', membersTitle: 'Team members',
       joinTitle: 'Interested in contributing?', joinText: 'The team is full for 2026–2027. Applications are closed for this academic year.', joinLink: 'Recruitment',
       supportTitle: 'Academic support', supportText: 'Members of ULB research departments who support the project.',
     },
@@ -168,7 +170,7 @@ export const copy = {
     team: {
       eyebrow: 'Équipe', title: 'L’équipe',
       intro: 'Le projet est mené par des étudiants de l’École polytechnique de Bruxelles, avec le soutien de membres du personnel académique de l’ULB.',
-      section: 'Étudiants', leadsTitle: 'Responsables', membersTitle: 'Membres de l’équipe',
+      section: 'Étudiants', leadsTitle: 'Responsables', managementTitle: 'Gestion', membersTitle: 'Membres de l’équipe',
       joinTitle: 'Envie de contribuer ?', joinText: 'L’équipe est complète pour 2026–2027. Les candidatures sont closes pour cette année académique.', joinLink: 'Recrutement',
       supportTitle: 'Soutien académique', supportText: 'Des membres de services de recherche de l’ULB qui soutiennent le projet.',
     },
